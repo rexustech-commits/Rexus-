@@ -6,6 +6,17 @@
     <title>RexusTech | Enterprise AI Infrastructure</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
+    <!-- EmailJS SDK Script -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function(){
+            // Replace with your actual EmailJS Public Key
+            emailjs.init({
+                publicKey: "YOUR_PUBLIC_KEY",
+            });
+        })();
+    </script>
+
     <style>
         /* ==========================================================================
            GLOBAL & VARIABLES
@@ -126,13 +137,11 @@
 
     <!-- HEADER -->
     <header>
-        <!-- Logo and Brand Name -->
         <div class="brand-container nav-trigger" data-target="page-home">
             <img src="assets/logo.png" alt="RexusTech Logo" class="brand-logo" onerror="this.style.display='none'">
             <span class="logo-text">RexusTech</span>
         </div>
         
-        <!-- Desktop Navigation -->
         <nav class="desktop-nav">
             <a class="nav-trigger active-link" data-target="page-home">Home</a>
             <a class="nav-trigger" data-target="page-about">About Us</a>
@@ -143,11 +152,9 @@
         </nav>
 
         <div class="header-actions">
-            <!-- System Status Button (Pulse Icon) -->
             <button class="icon-btn" id="btn-status" aria-label="System Status" style="color: white;">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
             </button>
-            <!-- Mobile Menu Toggle -->
             <button class="icon-btn menu-toggle" id="btn-menu" style="color: white;">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
             </button>
@@ -173,7 +180,6 @@
         <!-- 1. HOME PAGE -->
         <div id="page-home" class="page-view active">
             <section class="hero">
-                <!-- 1:4 Rectangular Banner -->
                 <div class="hero-banner-container">
                     <img src="assets/banner.png" alt="RexusTech Enterprise Banner" class="hero-banner" onerror="this.style.display='none'">
                 </div>
@@ -183,8 +189,8 @@
                 <div class="hero-cta-module">
                     <h3 style="margin-bottom: 0.5rem;">Engineer the future.</h3>
                     <p style="color: var(--c-text-muted); margin-bottom: 1.5rem;">Partner with our team to scale your AI, Software, and Embedded IoT infrastructure.</p>
-                    <input type="email" placeholder="Enter your business email" class="form-input">
-                    <button class="btn-dark" style="width: 100%;">Get Started</button>
+                    <input type="email" id="hero-email-input" placeholder="Enter your business email" class="form-input">
+                    <button class="btn-dark" id="hero-get-started-btn" style="width: 100%;">Get Started</button>
                 </div>
             </section>
         </div>
@@ -234,12 +240,9 @@
                 <p class="section-desc">Engineering intelligent, automated, and embedded software systems.</p>
             </div>
             <div class="container section-padding grid-cards">
-                
                 <div class="card">
                     <h3>Computer Vision</h3>
-                    <p style="color: var(--c-text-muted); margin-bottom: 1rem; font-size: 0.95rem;">
-                        Optical parsing, real-time video analytics, and spatial intelligence.
-                    </p>
+                    <p style="color: var(--c-text-muted); margin-bottom: 1rem; font-size: 0.95rem;">Optical parsing, real-time video analytics, and spatial intelligence.</p>
                     <ul style="color: var(--c-text-muted); margin-left: 1rem; list-style: square; font-size: 0.9rem; line-height: 1.8;">
                         <li>Object Detection & Tracking</li>
                         <li>Image Classification & Heatmaps</li>
@@ -247,12 +250,9 @@
                         <li>Edge Vision for Embedded Cameras</li>
                     </ul>
                 </div>
-
                 <div class="card">
                     <h3>AI & Data Analytics</h3>
-                    <p style="color: var(--c-text-muted); margin-bottom: 1rem; font-size: 0.95rem;">
-                        Predictive modeling and actionable business intelligence.
-                    </p>
+                    <p style="color: var(--c-text-muted); margin-bottom: 1rem; font-size: 0.95rem;">Predictive modeling and actionable business intelligence.</p>
                     <ul style="color: var(--c-text-muted); margin-left: 1rem; list-style: square; font-size: 0.9rem; line-height: 1.8;">
                         <li>Predictive Forecasting</li>
                         <li>Automated ETL Data Pipelines</li>
@@ -260,12 +260,9 @@
                         <li>Real-Time Analytics Dashboards</li>
                     </ul>
                 </div>
-
                 <div class="card">
                     <h3>Software Engineering</h3>
-                    <p style="color: var(--c-text-muted); margin-bottom: 1rem; font-size: 0.95rem;">
-                        High-performance cloud architectures and web applications.
-                    </p>
+                    <p style="color: var(--c-text-muted); margin-bottom: 1rem; font-size: 0.95rem;">High-performance cloud architectures and web applications.</p>
                     <ul style="color: var(--c-text-muted); margin-left: 1rem; list-style: square; font-size: 0.9rem; line-height: 1.8;">
                         <li>Enterprise Web Applications</li>
                         <li>Secure REST & GraphQL APIs</li>
@@ -273,12 +270,9 @@
                         <li>Database Architecture</li>
                     </ul>
                 </div>
-
                 <div class="card">
                     <h3>IoT & Embedded Systems</h3>
-                    <p style="color: var(--c-text-muted); margin-bottom: 1rem; font-size: 0.95rem;">
-                        Firmware and edge sensor integration for hardware ecosystems.
-                    </p>
+                    <p style="color: var(--c-text-muted); margin-bottom: 1rem; font-size: 0.95rem;">Firmware and edge sensor integration for hardware ecosystems.</p>
                     <ul style="color: var(--c-text-muted); margin-left: 1rem; list-style: square; font-size: 0.9rem; line-height: 1.8;">
                         <li>Custom Firmware Development</li>
                         <li>Edge Computing Hardware</li>
@@ -286,7 +280,6 @@
                         <li>Device-to-Cloud Synchronization</li>
                     </ul>
                 </div>
-
             </div>
         </div>
 
@@ -318,16 +311,16 @@
             </div>
             <div class="container section-padding" style="display: flex; justify-content: center;">
                 <div class="card" style="width: 100%; max-width: 600px;">
-                    <input type="text" placeholder="Full Name" class="form-input">
-                    <input type="email" placeholder="Work Email" class="form-input">
-                    <select class="form-input">
-                        <option>Service Required</option>
-                        <option>Computer Vision</option>
-                        <option>IoT / Embedded Systems</option>
-                        <option>Software Engineering</option>
+                    <input type="text" id="contact-name" placeholder="Full Name" class="form-input">
+                    <input type="email" id="contact-email" placeholder="Work Email" class="form-input">
+                    <select id="contact-service" class="form-input">
+                        <option value="">Service Required</option>
+                        <option value="Computer Vision">Computer Vision</option>
+                        <option value="IoT / Embedded Systems">IoT / Embedded Systems</option>
+                        <option value="Software Engineering">Software Engineering</option>
                     </select>
-                    <textarea placeholder="Project Details" class="form-input" rows="4"></textarea>
-                    <button class="btn-dark" style="width: 100%;">Submit Request</button>
+                    <textarea id="contact-details" placeholder="Project Details" class="form-input" rows="4"></textarea>
+                    <button class="btn-dark" id="contact-submit-btn" style="width: 100%;">Submit Request</button>
                 </div>
             </div>
         </div>
@@ -336,7 +329,7 @@
 
     <!-- FOOTER -->
     <footer>
-        <p>Copyright © 2026 RexusTech.All rights reserved.</p>
+        <p>Copyright © 2026 RexusTech Limited. All rights reserved.</p>
     </footer>
 
     <!-- ==========================================================================
@@ -350,38 +343,25 @@
             <p style="color: var(--c-text-muted); margin-bottom: 2rem;">Current health of RexusTech global infrastructure.</p>
             
             <div style="display: flex; flex-direction: column;">
-                
                 <div class="status-item">
                     <span style="font-weight: 500;">AI Inference Engine</span>
-                    <span class="status-indicator" style="color: #10B981;">
-                        <span class="dot dot-green"></span> Operational
-                    </span>
+                    <span class="status-indicator" style="color: #10B981;"><span class="dot dot-green"></span> Operational</span>
                 </div>
-                
                 <div class="status-item">
                     <span style="font-weight: 500;">IoT Edge Gateways</span>
-                    <span class="status-indicator" style="color: #10B981;">
-                        <span class="dot dot-green"></span> Operational
-                    </span>
+                    <span class="status-indicator" style="color: #10B981;"><span class="dot dot-green"></span> Operational</span>
                 </div>
-                
                 <div class="status-item">
                     <span style="font-weight: 500;">Data Analytics Cloud</span>
-                    <span class="status-indicator" style="color: #F59E0B;">
-                        <span class="dot dot-yellow"></span> Degraded Performance
-                    </span>
+                    <span class="status-indicator" style="color: #F59E0B;"><span class="dot dot-yellow"></span> Degraded Performance</span>
                 </div>
-                
                 <div class="status-item">
                     <span style="font-weight: 500;">Global API Routing</span>
-                    <span class="status-indicator" style="color: #10B981;">
-                        <span class="dot dot-green"></span> Operational
-                    </span>
+                    <span class="status-indicator" style="color: #10B981;"><span class="dot dot-green"></span> Operational</span>
                 </div>
-                
             </div>
             
-            <button class="btn-dark" style="width: 100%; margin-top: 2rem;">View Full Incident Report</button>
+            <button class="btn-dark" id="incident-report-btn" style="width: 100%; margin-top: 2rem;">View Full Incident Report</button>
         </div>
     </div>
 
@@ -401,22 +381,15 @@
                     e.preventDefault();
                     const targetId = trigger.getAttribute('data-target');
                     
-                    // Hide all pages
                     pageViews.forEach(page => page.classList.remove('active'));
-                    
-                    // Show target page
                     document.getElementById(targetId).classList.add('active');
                     
-                    // Update active state on desktop nav
                     document.querySelectorAll('.desktop-nav a').forEach(link => link.classList.remove('active-link'));
                     if(trigger.parentElement && trigger.parentElement.classList.contains('desktop-nav')){
                         trigger.classList.add('active-link');
                     }
 
-                    // Close mobile menu if open
                     mobileMenu.classList.remove('active');
-                    
-                    // Scroll to top
                     window.scrollTo(0, 0);
                 });
             });
@@ -435,6 +408,84 @@
 
             btnStatus.addEventListener('click', () => overlayStatus.classList.add('active'));
             closeStatus.addEventListener('click', () => overlayStatus.classList.remove('active'));
+
+            // --- 4. FUNCTIONAL BUTTONS & EMAIL DISPATCH (rexusfounder@gmail.com) ---
+            
+            // A. View Full Incident Report Button
+            const incidentBtn = document.getElementById('incident-report-btn');
+            if (incidentBtn) {
+                incidentBtn.addEventListener('click', () => {
+                    alert("Redirecting to RexusTech Live Incident Logs dashboard...");
+                });
+            }
+
+            // B. Hero "Get Started" Email Button
+            const getStartedBtn = document.getElementById('hero-get-started-btn');
+            const emailInput = document.getElementById('hero-email-input');
+            if (getStartedBtn && emailInput) {
+                getStartedBtn.addEventListener('click', () => {
+                    const emailVal = emailInput.value.trim();
+                    if (!emailVal || !emailVal.includes('@')) {
+                        alert("Please enter a valid business email address.");
+                        return;
+                    }
+
+                    getStartedBtn.innerText = "Sending...";
+                    
+                    // Sending via EmailJS to rexusfounder@gmail.com
+                    emailjs.send("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", {
+                        from_name: "Hero Newsletter Lead",
+                        from_email: emailVal,
+                        service_required: "Get Started Signup",
+                        message: "New newsletter/get-started lead submitted with email: " + emailVal
+                    }).then(() => {
+                        alert(`Success! Details sent to rexusfounder@gmail.com.`);
+                        emailInput.value = '';
+                        getStartedBtn.innerText = "Get Started";
+                    }, (error) => {
+                        alert("Failed to send. Please check your EmailJS configuration.");
+                        getStartedBtn.innerText = "Get Started";
+                    });
+                });
+            }
+
+            // C. Contact Form "Submit Request" Button
+            const contactSubmitBtn = document.getElementById('contact-submit-btn');
+            if (contactSubmitBtn) {
+                contactSubmitBtn.addEventListener('click', () => {
+                    const name = document.getElementById('contact-name').value.trim();
+                    const email = document.getElementById('contact-email').value.trim();
+                    const service = document.getElementById('contact-service').value;
+                    const details = document.getElementById('contact-details').value.trim();
+
+                    if (!name || !email || !service) {
+                        alert("Please complete the required fields (Full Name, Work Email, Service Required).");
+                        return;
+                    }
+
+                    contactSubmitBtn.innerText = "Sending Request...";
+
+                    // Sending via EmailJS to rexusfounder@gmail.com
+                    emailjs.send("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", {
+                        from_name: name,
+                        from_email: email,
+                        service_required: service,
+                        message: details
+                    }).then(() => {
+                        alert("Your request has been sent successfully to rexusfounder@gmail.com!");
+                        
+                        // Reset form inputs
+                        document.getElementById('contact-name').value = '';
+                        document.getElementById('contact-email').value = '';
+                        document.getElementById('contact-service').selectedIndex = 0;
+                        document.getElementById('contact-details').value = '';
+                        contactSubmitBtn.innerText = "Submit Request";
+                    }, (error) => {
+                        alert("Failed to send message. Please try again later.");
+                        contactSubmitBtn.innerText = "Submit Request";
+                    });
+                });
+            }
 
         });
     </script>
