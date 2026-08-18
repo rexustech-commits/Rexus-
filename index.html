@@ -10,7 +10,7 @@
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <script type="text/javascript">
         (function(){
-            // Replace with your actual EmailJS Public Key
+            // >>> PASTE YOUR EMAILJS PUBLIC KEY HERE <<<
             emailjs.init({
                 publicKey: "YOUR_PUBLIC_KEY",
             });
@@ -432,7 +432,7 @@
 
                     getStartedBtn.innerText = "Sending...";
                     
-                    // Sending via EmailJS to rexusfounder@gmail.com
+                    // >>> PASTE YOUR EMAILJS SERVICE ID AND TEMPLATE ID BELOW <<<
                     emailjs.send("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", {
                         from_name: "Hero Newsletter Lead",
                         from_email: emailVal,
@@ -465,7 +465,7 @@
 
                     contactSubmitBtn.innerText = "Sending Request...";
 
-                    // Sending via EmailJS to rexusfounder@gmail.com
+                    // >>> PASTE YOUR EMAILJS SERVICE ID AND TEMPLATE ID BELOW <<<
                     emailjs.send("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", {
                         from_name: name,
                         from_email: email,
