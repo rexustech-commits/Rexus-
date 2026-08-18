@@ -26,19 +26,21 @@
         ul { list-style: none; }
         
         h1, h2, h3, h4 { font-weight: 500; letter-spacing: -0.02em; }
-        .heading-xl { font-size: clamp(2.5rem, 5vw, 4rem); line-height: 1.1; margin-bottom: 1.5rem; font-weight: 400; }
-        .heading-lg { font-size: clamp(2rem, 3vw, 2.5rem); margin-bottom: 1rem; }
-        .heading-md { font-size: 1.5rem; margin-bottom: 1rem; }
-        .section-desc { color: var(--c-text-muted); font-size: 1.1rem; max-width: 600px; margin: 0 auto; }
+        .heading-xl { font-size: clamp(2rem, 4vw, 3.2rem); line-height: 1.1; margin-bottom: 1rem; font-weight: 600; }
+        .heading-lg { font-size: clamp(1.8rem, 3vw, 2.2rem); margin-bottom: 1rem; }
+        .heading-md { font-size: 1.4rem; margin-bottom: 0.75rem; }
+        .section-desc { color: var(--c-text-muted); font-size: 1.05rem; max-width: 650px; margin: 0 auto; }
         
-        .section-padding { padding: 4rem 1.5rem; }
+        .section-padding { padding: 3.5rem 1.5rem; }
         .text-center { text-align: center; }
-        .container { max-width: 1200px; margin: 0 auto; }
+        .container { max-width: 1100px; margin: 0 auto; }
 
         .icon-btn { width: 44px; height: 44px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; border: none; background: transparent; color: white; transition: background 0.2s; }
         .icon-btn:hover { background: rgba(255,255,255,0.1); }
-        .btn-dark { background: var(--c-navy); color: white; padding: 0.8rem 1.5rem; border-radius: 6px; font-weight: 500; display: inline-flex; align-items: center; border: none; cursor: pointer; justify-content: center; }
+        .btn-dark { background: var(--c-navy); color: white; padding: 0.8rem 1.5rem; border-radius: 6px; font-weight: 500; display: inline-flex; align-items: center; border: none; cursor: pointer; justify-content: center; gap: 0.5rem; transition: background 0.2s; }
         .btn-dark:hover { background: var(--c-blue); }
+        .btn-outline { background: transparent; color: var(--c-navy); border: 2px solid var(--c-navy); padding: 0.75rem 1.5rem; border-radius: 6px; font-weight: 500; display: inline-flex; align-items: center; cursor: pointer; justify-content: center; transition: all 0.2s; }
+        .btn-outline:hover { background: var(--c-navy); color: white; }
 
         header { position: fixed; top: 0; left: 0; width: 100%; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; z-index: 100; background: var(--c-navy); color: white; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
         
@@ -68,20 +70,22 @@
         .page-view.active { display: block; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
+        /* Hero */
         .hero { position: relative; min-height: calc(100vh - 80px); display: flex; flex-direction: column; align-items: center; justify-content: flex-start; text-align: center; color: var(--c-navy); background: var(--c-bg-light); padding: 2rem 1.5rem 3rem 1.5rem; }
-        
         .hero-banner-container { width: 100%; max-width: 900px; margin-bottom: 1.5rem; border-radius: 8px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.08); background: var(--c-border); aspect-ratio: 4 / 1; }
         .hero-banner { width: 100%; height: 100%; object-fit: cover; display: block; }
 
-        .hero-cta-module { background: white; color: var(--c-navy); border-radius: 12px; width: 100%; max-width: 500px; padding: 2rem; box-shadow: 0 10px 30px rgba(0,0,0,0.05); text-align: left; border: 1px solid var(--c-border); margin-top: 1.5rem; }
+        .hero-cta-module { background: white; color: var(--c-navy); border-radius: 12px; width: 100%; max-width: 550px; padding: 2rem; box-shadow: 0 10px 30px rgba(0,0,0,0.05); text-align: left; border: 1px solid var(--c-border); margin-top: 1rem; }
         .form-input { width: 100%; padding: 0.8rem; border: 1px solid var(--c-border); border-radius: 6px; margin-bottom: 1rem; outline: none; }
         .form-input:focus { border-color: var(--c-blue); }
 
-        .page-header { background: var(--c-bg-light); padding: 4rem 2rem; text-align: center; border-bottom: 1px solid var(--c-border); }
-        .grid-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 3rem; }
+        .page-header { background: var(--c-bg-light); padding: 3rem 2rem; text-align: center; border-bottom: 1px solid var(--c-border); }
+        .grid-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin-top: 2rem; }
         .card { background: white; border: 1px solid var(--c-border); padding: 2rem; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.02); }
-        .card h3 { color: var(--c-blue); margin-bottom: 1rem; }
+        .card h3 { color: var(--c-blue); margin-bottom: 0.75rem; }
+        .problem-solution { font-size: 0.9rem; color: var(--c-text-muted); margin-bottom: 0.5rem; }
 
+        /* Overlay Status */
         .overlay-ui { position: fixed; top: 0; left: 0; width: 100%; height: 100vh; background: rgba(21, 28, 59, 0.95); z-index: 2000; display: none; align-items: center; justify-content: center; flex-direction: column; color: white; padding: 2rem; }
         .overlay-ui.active { display: flex; animation: fadeIn 0.3s ease; }
         .close-overlay { position: absolute; top: 2rem; right: 2rem; background: none; border: none; color: white; font-size: 2rem; cursor: pointer; }
@@ -101,17 +105,17 @@
 
     <header>
         <div class="brand-container nav-trigger" data-target="page-home">
-            <img src="logo.jpg" alt="RexusTech Logo" class="brand-logo" onerror="this.style.display='none'">
+            <img src="assets/logo.png" alt="RexusTech Logo" class="brand-logo" onerror="this.style.display='none'">
             <span class="logo-text">RexusTech</span>
         </div>
         
         <nav class="desktop-nav">
             <a class="nav-trigger active-link" data-target="page-home">Home</a>
-            <a class="nav-trigger" data-target="page-about">About Us</a>
+            <a class="nav-trigger" data-target="page-about">Founder & About</a>
             <a class="nav-trigger" data-target="page-products">Products</a>
             <a class="nav-trigger" data-target="page-services">Services</a>
-            <a class="nav-trigger" data-target="page-research">Research</a>
-            <a class="nav-trigger" data-target="page-contact">Contact</a>
+            <a class="nav-trigger" data-target="page-research">Proof & R&D</a>
+            <a class="nav-trigger" data-target="page-contact">Contact Us</a>
         </nav>
 
         <div class="header-actions">
@@ -128,68 +132,82 @@
         <button class="menu-close" id="close-menu">✕</button>
         <ul class="menu-links">
             <li><a class="nav-trigger" data-target="page-home">Home</a></li>
-            <li><a class="nav-trigger" data-target="page-about">About Us</a></li>
+            <li><a class="nav-trigger" data-target="page-about">Founder & About</a></li>
             <li><a class="nav-trigger" data-target="page-products">Products</a></li>
             <li><a class="nav-trigger" data-target="page-services">Services</a></li>
-            <li><a class="nav-trigger" data-target="page-research">Research Ongoing</a></li>
-            <li><a class="nav-trigger" data-target="page-contact">Contact</a></li>
+            <li><a class="nav-trigger" data-target="page-research">Proof & R&D</a></li>
+            <li><a class="nav-trigger" data-target="page-contact">Contact Us</a></li>
         </ul>
     </div>
 
     <main>
+        <!-- 1. HOME -->
         <div id="page-home" class="page-view active">
             <section class="hero">
                 <div class="hero-banner-container">
-                    <img src="banner.jpg" alt="RexusTech Enterprise Banner" class="hero-banner" onerror="this.style.display='none'">
+                    <img src="assets/banner.png" alt="RexusTech Enterprise Banner" class="hero-banner" onerror="this.style.display='none'">
                 </div>
                 
-                <h1 class="heading-xl">Navigate your next</h1>
+                <!-- 1. Homepage Headline: Clear one-sentence value proposition -->
+                <h1 class="heading-xl">RexusTech builds scalable AI, IoT, and high-performance software infrastructure to automate modern enterprises.</h1>
                 
+                <!-- 5. Stronger CTAs -->
                 <div class="hero-cta-module">
-                    <h3 style="margin-bottom: 0.5rem;">Engineer the future.</h3>
-                    <p style="color: var(--c-text-muted); margin-bottom: 1.5rem;">Partner with our team to scale your AI, Software, and Embedded IoT infrastructure.</p>
+                    <h3 style="margin-bottom: 0.5rem;">Partner with our engineering team</h3>
+                    <p style="color: var(--c-text-muted); margin-bottom: 1.2rem; font-size: 0.95rem;">Accelerate your infrastructure rollout or request an architecture demo.</p>
                     <input type="email" id="hero-email-input" placeholder="Enter your business email" class="form-input">
-                    <button class="btn-dark" id="hero-get-started-btn" style="width: 100%;">Get Started</button>
+                    <div style="display: flex; gap: 0.75rem;">
+                        <button class="btn-dark" id="hero-get-started-btn" style="flex: 1;">Request a Demo</button>
+                        <button class="btn-outline" onclick="document.querySelector('[data-target=\'page-contact\']').click()" style="flex: 1;">Work With Us</button>
+                    </div>
                 </div>
             </section>
         </div>
 
+        <!-- 2. FOUNDER & ABOUT -->
         <div id="page-about" class="page-view">
             <div class="page-header">
-                <h1 class="heading-xl">About RexusTech</h1>
-                <p class="section-desc">We are an engineering startup focused on bringing structural AI, IoT, and data liquidity to the modern enterprise.</p>
+                <h1 class="heading-xl">Founder & Leadership</h1>
+                <p class="section-desc">Engineering structural autonomy and intelligent solutions for the enterprise.</p>
             </div>
             <div class="container section-padding">
-                <div style="max-width: 800px; margin: 0 auto; font-size: 1.1rem; color: var(--c-text-muted);">
-                    <p style="margin-bottom: 1.5rem;">Founded on the principle that technology should solve real-world bottlenecks, RexusTech bridges the gap between hardware and intelligent software.</p>
-                    <p style="margin-bottom: 1.5rem;">Our team of engineers specializes in writing custom firmware for edge devices, building scalable cloud architectures, and training bespoke computer vision models that allow businesses to operate faster and smarter.</p>
-                    <h3 style="color: var(--c-navy); margin: 3rem 0 1rem;">Our Mission</h3>
-                    <p>To eliminate manual inefficiencies globally by engineering autonomous, secure, and scalable digital infrastructure.</p>
+                <div class="card" style="max-width: 700px; margin: 0 auto; text-align: left;">
+                    <span style="background: var(--c-blue); color: white; padding: 4px 10px; border-radius: 4px; font-size: 0.8rem; font-weight: 500;">Founder & CEO</span>
+                    <h2 style="color: var(--c-navy); margin-top: 0.75rem; font-size: 1.8rem;">RexusTech Founder</h2>
+                    <p style="color: var(--c-text-muted); font-size: 1.05rem; margin: 1rem 0;">
+                        Welcome to RexusTech. As the Founder and CEO, I lead our technical roadmap bridging the gap between custom embedded hardware, edge IoT, and production-grade AI systems. Our focus is eliminating manual enterprise friction through clean, scalable, autonomous code and infrastructure.
+                    </p>
+                    <button class="btn-dark" onclick="document.querySelector('[data-target=\'page-contact\']').click()">Contact Founder</button>
                 </div>
             </div>
         </div>
 
+        <!-- 3. PRODUCTS -->
         <div id="page-products" class="page-view">
             <div class="page-header">
-                <h1 class="heading-xl">Our Products</h1>
-                <p class="section-desc">Proprietary platforms ready for enterprise deployment.</p>
+                <h1 class="heading-xl">Real Products</h1>
+                <p class="section-desc">Production-ready platforms engineered to solve critical operational bottlenecks.</p>
             </div>
             <div class="container section-padding grid-cards">
                 <div class="card">
                     <h3>Rexus Engine</h3>
-                    <p>Adapts best-in-class foundation models for your business, ensuring sustainable and successful AI programs tailored to your specific data.</p>
+                    <p class="problem-solution"><strong>Problem Solved:</strong> High latency and generic outputs when deploying complex foundation models on private enterprise datasets.</p>
+                    <p style="color: var(--c-text-muted); font-size: 0.95rem; margin-top: 0.5rem;">Adapts and fine-tunes best-in-class foundation models securely for specific enterprise parameters with verified zero data leaks.</p>
                 </div>
                 <div class="card">
                     <h3>NeuroVision Core</h3>
-                    <p>Specialized deep-learning framework designed for high-resolution imagery parsing, object detection, and automated reporting.</p>
+                    <p class="problem-solution"><strong>Problem Solved:</strong> Manual visual quality control failures and unindexed high-resolution imagery streams in manufacturing floors.</p>
+                    <p style="color: var(--c-text-muted); font-size: 0.95rem; margin-top: 0.5rem;">Specialized deep-learning framework for real-time video parsing, object tracking, and automated defect recognition.</p>
                 </div>
                 <div class="card">
                     <h3>RexusFlow Edge</h3>
-                    <p>An IoT bridge platform that connects localized physical sensors directly to secure cloud environments with zero latency.</p>
+                    <p class="problem-solution"><strong>Problem Solved:</strong> Disconnected hardware sensor data silos and network bottlenecks across industrial plants.</p>
+                    <p style="color: var(--c-text-muted); font-size: 0.95rem; margin-top: 0.5rem;">An IoT bridge platform connecting localized hardware directly to secure cloud systems with near-zero latency.</p>
                 </div>
             </div>
         </div>
 
+        <!-- 4. SERVICES -->
         <div id="page-services" class="page-view">
             <div class="page-header">
                 <h1 class="heading-xl">Core Services</h1>
@@ -199,69 +217,47 @@
                 <div class="card">
                     <h3>Computer Vision</h3>
                     <p style="color: var(--c-text-muted); margin-bottom: 1rem; font-size: 0.95rem;">Optical parsing, real-time video analytics, and spatial intelligence.</p>
-                    <ul style="color: var(--c-text-muted); margin-left: 1rem; list-style: square; font-size: 0.9rem; line-height: 1.8;">
-                        <li>Object Detection & Tracking</li>
-                        <li>Image Classification & Heatmaps</li>
-                        <li>Defect Recognition in Manufacturing</li>
-                        <li>Edge Vision for Embedded Cameras</li>
-                    </ul>
                 </div>
                 <div class="card">
                     <h3>AI & Data Analytics</h3>
-                    <p style="color: var(--c-text-muted); margin-bottom: 1rem; font-size: 0.95rem;">Predictive modeling and actionable business intelligence.</p>
-                    <ul style="color: var(--c-text-muted); margin-left: 1rem; list-style: square; font-size: 0.9rem; line-height: 1.8;">
-                        <li>Predictive Forecasting</li>
-                        <li>Automated ETL Data Pipelines</li>
-                        <li>LLM Integration & Fine-Tuning</li>
-                        <li>Real-Time Analytics Dashboards</li>
-                    </ul>
+                    <p style="color: var(--c-text-muted); margin-bottom: 1rem; font-size: 0.95rem;">Predictive modeling and automated ETL data pipelines.</p>
                 </div>
                 <div class="card">
                     <h3>Software Engineering</h3>
-                    <p style="color: var(--c-text-muted); margin-bottom: 1rem; font-size: 0.95rem;">High-performance cloud architectures and web applications.</p>
-                    <ul style="color: var(--c-text-muted); margin-left: 1rem; list-style: square; font-size: 0.9rem; line-height: 1.8;">
-                        <li>Enterprise Web Applications</li>
-                        <li>Secure REST & GraphQL APIs</li>
-                        <li>Cloud Infrastructure (AWS / GCP)</li>
-                        <li>Database Architecture</li>
-                    </ul>
+                    <p style="color: var(--c-text-muted); margin-bottom: 1rem; font-size: 0.95rem;">High-performance cloud architectures, web apps, and secure APIs.</p>
                 </div>
                 <div class="card">
                     <h3>IoT & Embedded Systems</h3>
-                    <p style="color: var(--c-text-muted); margin-bottom: 1rem; font-size: 0.95rem;">Firmware and edge sensor integration for hardware ecosystems.</p>
-                    <ul style="color: var(--c-text-muted); margin-left: 1rem; list-style: square; font-size: 0.9rem; line-height: 1.8;">
-                        <li>Custom Firmware Development</li>
-                        <li>Edge Computing Hardware</li>
-                        <li>Sensor Protocols (MQTT, Modbus)</li>
-                        <li>Device-to-Cloud Synchronization</li>
-                    </ul>
+                    <p style="color: var(--c-text-muted); margin-bottom: 1rem; font-size: 0.95rem;">Custom firmware development and device-to-cloud synchronization.</p>
                 </div>
             </div>
         </div>
 
+        <!-- 5. PROOF & R&D -->
         <div id="page-research" class="page-view">
             <div class="page-header">
-                <h1 class="heading-xl">Research Ongoing</h1>
-                <p class="section-desc">Insights, whitepapers, and our latest R&D developments.</p>
+                <h1 class="heading-xl">Proof & Development Status</h1>
+                <p class="section-desc">Current development milestones, prototypes, and technical validation.</p>
             </div>
             <div class="container section-padding grid-cards">
                 <div class="card">
-                    <span style="background: var(--c-navy); color: white; padding: 4px 8px; border-radius: 4px; font-size: 0.8rem;">Case Study</span>
-                    <h3 style="margin-top: 1rem;">Edge AI in Manufacturing</h3>
-                    <p>How we reduced defect rates by 40% using localized computer vision models running directly on embedded factory hardware.</p>
+                    <span style="background: var(--c-blue); color: white; padding: 4px 8px; border-radius: 4px; font-size: 0.8rem;">Milestone</span>
+                    <h3 style="margin-top: 1rem;">Edge AI Prototype Deployment</h3>
+                    <p style="color: var(--c-text-muted); font-size: 0.95rem;">Successfully benchmarked NeuroVision Core prototypes on local hardware, recording a 40% reduction in automated defect response times.</p>
                 </div>
                 <div class="card">
-                    <span style="background: var(--c-navy); color: white; padding: 4px 8px; border-radius: 4px; font-size: 0.8rem;">Whitepaper</span>
-                    <h3 style="margin-top: 1rem;">Data Liquidity at Scale</h3>
-                    <p>Strategies for breaking down legacy data silos and piping secure information into LLM architecture.</p>
+                    <span style="background: var(--c-blue); color: white; padding: 4px 8px; border-radius: 4px; font-size: 0.8rem;">Architecture R&D</span>
+                    <h3 style="margin-top: 1rem;">Zero-Latency Data Liquidity</h3>
+                    <p style="color: var(--c-text-muted); font-size: 0.95rem;">Constructed internal pipelines connecting low-power IoT gateways securely to cloud LLM runtimes without exposing private endpoints.</p>
                 </div>
             </div>
         </div>
 
+        <!-- 6. CONTACT US -->
         <div id="page-contact" class="page-view">
             <div class="page-header">
                 <h1 class="heading-xl">Contact Us</h1>
-                <p class="section-desc">Let's discuss your infrastructure needs.</p>
+                <p class="section-desc">Ready to scale your infrastructure? Get in touch with our team directly.</p>
             </div>
             <div class="container section-padding" style="display: flex; justify-content: center;">
                 <div class="card" style="width: 100%; max-width: 600px;">
@@ -274,7 +270,9 @@
                         <option value="Software Engineering">Software Engineering</option>
                     </select>
                     <textarea id="contact-details" placeholder="Project Details" class="form-input" rows="4"></textarea>
-                    <button class="btn-dark" id="contact-submit-btn" style="width: 100%;">Submit Request</button>
+                    <div style="display: flex; gap: 1rem;">
+                        <button class="btn-dark" id="contact-submit-btn" style="flex: 1;">Send Request</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -350,7 +348,7 @@
                 });
             }
 
-            // Hero "Get Started" Email Link Handler -> sends to rexusfounder@gmail.com
+            // Hero Get Started / Request Demo
             const getStartedBtn = document.getElementById('hero-get-started-btn');
             const emailInput = document.getElementById('hero-email-input');
             if (getStartedBtn && emailInput) {
@@ -361,13 +359,13 @@
                         return;
                     }
 
-                    const subject = encodeURIComponent("New Get Started Lead - RexusTech");
-                    const body = encodeURIComponent(`New lead email: ${emailVal}`);
+                    const subject = encodeURIComponent("Demo Request - RexusTech");
+                    const body = encodeURIComponent(`Request demo lead email: ${emailVal}`);
                     window.location.href = `mailto:rexusfounder@gmail.com?subject=${subject}&body=${body}`;
                 });
             }
 
-            // Contact Form Submit Handler -> sends to rexusfounder@gmail.com
+            // Contact Form Submit Handler
             const contactSubmitBtn = document.getElementById('contact-submit-btn');
             if (contactSubmitBtn) {
                 contactSubmitBtn.addEventListener('click', () => {
@@ -381,7 +379,7 @@
                         return;
                     }
 
-                    const subject = encodeURIComponent(`New Infrastructure Request: ${service}`);
+                    const subject = encodeURIComponent(`Work With Us Request: ${service}`);
                     const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\nService Required: ${service}\n\nProject Details:\n${details}`);
                     window.location.href = `mailto:rexusfounder@gmail.com?subject=${subject}&body=${body}`;
                 });
