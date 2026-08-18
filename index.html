@@ -5,22 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RexusTech | Enterprise AI Infrastructure</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- EmailJS SDK Script -->
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-    <script type="text/javascript">
-        (function(){
-            // >>> PASTE YOUR EMAILJS PUBLIC KEY HERE <<<
-            emailjs.init({
-                publicKey: "YOUR_PUBLIC_KEY",
-            });
-        })();
-    </script>
 
     <style>
-        /* ==========================================================================
-           GLOBAL & VARIABLES
-           ========================================================================== */
         :root {
             --c-navy: #151C3B;
             --c-navy-light: #2A365C;
@@ -39,7 +25,6 @@
         a { text-decoration: none; color: inherit; cursor: pointer; }
         ul { list-style: none; }
         
-        /* Typography */
         h1, h2, h3, h4 { font-weight: 500; letter-spacing: -0.02em; }
         .heading-xl { font-size: clamp(2.5rem, 5vw, 4rem); line-height: 1.1; margin-bottom: 1.5rem; font-weight: 400; }
         .heading-lg { font-size: clamp(2rem, 3vw, 2.5rem); margin-bottom: 1rem; }
@@ -50,18 +35,13 @@
         .text-center { text-align: center; }
         .container { max-width: 1200px; margin: 0 auto; }
 
-        /* Buttons & Icons */
         .icon-btn { width: 44px; height: 44px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; border: none; background: transparent; color: white; transition: background 0.2s; }
         .icon-btn:hover { background: rgba(255,255,255,0.1); }
         .btn-dark { background: var(--c-navy); color: white; padding: 0.8rem 1.5rem; border-radius: 6px; font-weight: 500; display: inline-flex; align-items: center; border: none; cursor: pointer; justify-content: center; }
         .btn-dark:hover { background: var(--c-blue); }
 
-        /* ==========================================================================
-           HEADER & NAVIGATION
-           ========================================================================== */
         header { position: fixed; top: 0; left: 0; width: 100%; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; z-index: 100; background: var(--c-navy); color: white; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
         
-        /* Logo Styling */
         .brand-container { display: flex; align-items: center; gap: 0.75rem; cursor: pointer; }
         .brand-logo { height: 32px; width: auto; object-fit: contain; }
         .logo-text { font-size: 1.5rem; font-weight: 600; letter-spacing: -0.02em; margin: 0; }
@@ -78,26 +58,18 @@
             .menu-toggle { display: none; }
         }
 
-        /* Mobile Menu */
         .mobile-menu { position: fixed; top: 0; left: -100%; width: 100%; height: 100vh; background: var(--c-bg-light); z-index: 1000; transition: left 0.3s ease; padding: 2rem; display: flex; flex-direction: column; }
         .mobile-menu.active { left: 0; }
         .menu-links li { margin-bottom: 1.5rem; }
         .menu-links a { font-size: 1.5rem; font-weight: 500; color: var(--c-navy); }
         .menu-close { align-self: flex-end; color: var(--c-navy); background: none; border: none; font-size: 2rem; cursor: pointer; margin-bottom: 2rem; }
 
-        /* ==========================================================================
-           PAGE VIEW ROUTING (The "Multi-Page" Logic)
-           ========================================================================== */
         .page-view { display: none; padding-top: 80px; min-height: 80vh; animation: fadeIn 0.4s ease forwards; }
         .page-view.active { display: block; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
-        /* ==========================================================================
-           HOME PAGE
-           ========================================================================== */
         .hero { position: relative; min-height: calc(100vh - 80px); display: flex; flex-direction: column; align-items: center; justify-content: flex-start; text-align: center; color: var(--c-navy); background: var(--c-bg-light); padding: 2rem 1.5rem 3rem 1.5rem; }
         
-        /* 1:4 Rectangular Banner Styling */
         .hero-banner-container { width: 100%; max-width: 900px; margin-bottom: 1.5rem; border-radius: 8px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.08); background: var(--c-border); aspect-ratio: 4 / 1; }
         .hero-banner { width: 100%; height: 100%; object-fit: cover; display: block; }
 
@@ -105,22 +77,15 @@
         .form-input { width: 100%; padding: 0.8rem; border: 1px solid var(--c-border); border-radius: 6px; margin-bottom: 1rem; outline: none; }
         .form-input:focus { border-color: var(--c-blue); }
 
-        /* ==========================================================================
-           OTHER PAGES (Shared Styles)
-           ========================================================================== */
         .page-header { background: var(--c-bg-light); padding: 4rem 2rem; text-align: center; border-bottom: 1px solid var(--c-border); }
         .grid-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 3rem; }
         .card { background: white; border: 1px solid var(--c-border); padding: 2rem; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.02); }
         .card h3 { color: var(--c-blue); margin-bottom: 1rem; }
 
-        /* ==========================================================================
-           SYSTEM STATUS OVERLAY
-           ========================================================================== */
         .overlay-ui { position: fixed; top: 0; left: 0; width: 100%; height: 100vh; background: rgba(21, 28, 59, 0.95); z-index: 2000; display: none; align-items: center; justify-content: center; flex-direction: column; color: white; padding: 2rem; }
         .overlay-ui.active { display: flex; animation: fadeIn 0.3s ease; }
         .close-overlay { position: absolute; top: 2rem; right: 2rem; background: none; border: none; color: white; font-size: 2rem; cursor: pointer; }
         
-        /* Status Panel Styling */
         .status-panel { background: white; color: var(--c-navy); width: 100%; max-width: 500px; padding: 2.5rem; border-radius: 12px; box-shadow: 0 20px 40px rgba(0,0,0,0.3); }
         .status-item { display: flex; justify-content: space-between; align-items: center; padding: 1rem 0; border-bottom: 1px solid var(--c-border); }
         .status-item:last-child { border-bottom: none; }
@@ -129,16 +94,14 @@
         .dot-green { background-color: #10B981; box-shadow: 0 0 8px rgba(16, 185, 129, 0.5); }
         .dot-yellow { background-color: #F59E0B; box-shadow: 0 0 8px rgba(245, 158, 11, 0.5); }
 
-        /* Footer */
         footer { background: var(--c-navy); color: white; text-align: center; padding: 2rem; margin-top: auto; }
     </style>
 </head>
 <body>
 
-    <!-- HEADER -->
     <header>
         <div class="brand-container nav-trigger" data-target="page-home">
-            <img src="logo.jpg" alt="RexusTech Logo" class="brand-logo" onerror="this.style.display='none'">
+            <img src="assets/logo.png" alt="RexusTech Logo" class="brand-logo" onerror="this.style.display='none'">
             <span class="logo-text">RexusTech</span>
         </div>
         
@@ -161,7 +124,6 @@
         </div>
     </header>
 
-    <!-- MOBILE MENU -->
     <div class="mobile-menu" id="mobile-menu">
         <button class="menu-close" id="close-menu">✕</button>
         <ul class="menu-links">
@@ -174,14 +136,11 @@
         </ul>
     </div>
 
-    <!-- MAIN CONTENT AREA (Views) -->
     <main>
-        
-        <!-- 1. HOME PAGE -->
         <div id="page-home" class="page-view active">
             <section class="hero">
                 <div class="hero-banner-container">
-                    <img src="banner.jpg" alt="RexusTech Enterprise Banner" class="hero-banner" onerror="this.style.display='none'">
+                    <img src="assets/banner.png" alt="RexusTech Enterprise Banner" class="hero-banner" onerror="this.style.display='none'">
                 </div>
                 
                 <h1 class="heading-xl">Navigate your next</h1>
@@ -195,7 +154,6 @@
             </section>
         </div>
 
-        <!-- 2. ABOUT US PAGE -->
         <div id="page-about" class="page-view">
             <div class="page-header">
                 <h1 class="heading-xl">About RexusTech</h1>
@@ -211,7 +169,6 @@
             </div>
         </div>
 
-        <!-- 3. PRODUCTS PAGE -->
         <div id="page-products" class="page-view">
             <div class="page-header">
                 <h1 class="heading-xl">Our Products</h1>
@@ -233,7 +190,6 @@
             </div>
         </div>
 
-        <!-- 4. SERVICES PAGE -->
         <div id="page-services" class="page-view">
             <div class="page-header">
                 <h1 class="heading-xl">Core Services</h1>
@@ -283,7 +239,6 @@
             </div>
         </div>
 
-        <!-- 5. RESEARCH ONGOING PAGE -->
         <div id="page-research" class="page-view">
             <div class="page-header">
                 <h1 class="heading-xl">Research Ongoing</h1>
@@ -303,7 +258,6 @@
             </div>
         </div>
 
-        <!-- 6. CONTACT PAGE -->
         <div id="page-contact" class="page-view">
             <div class="page-header">
                 <h1 class="heading-xl">Contact Us</h1>
@@ -324,24 +278,17 @@
                 </div>
             </div>
         </div>
-
     </main>
 
-    <!-- FOOTER -->
     <footer>
         <p>Copyright © 2026 RexusTech Limited. All rights reserved.</p>
     </footer>
 
-    <!-- ==========================================================================
-         OVERLAYS (System Status)
-         ========================================================================== -->
     <div class="overlay-ui" id="overlay-status">
         <button class="close-overlay" id="close-status">✕</button>
-        
         <div class="status-panel">
             <h2 style="margin-bottom: 0.5rem; font-size: 1.8rem;">System Status</h2>
             <p style="color: var(--c-text-muted); margin-bottom: 2rem;">Current health of RexusTech global infrastructure.</p>
-            
             <div style="display: flex; flex-direction: column;">
                 <div class="status-item">
                     <span style="font-weight: 500;">AI Inference Engine</span>
@@ -360,18 +307,12 @@
                     <span class="status-indicator" style="color: #10B981;"><span class="dot dot-green"></span> Operational</span>
                 </div>
             </div>
-            
             <button class="btn-dark" id="incident-report-btn" style="width: 100%; margin-top: 2rem;">View Full Incident Report</button>
         </div>
     </div>
 
-    <!-- ==========================================================================
-         JAVASCRIPT
-         ========================================================================== -->
     <script>
         document.addEventListener("DOMContentLoaded", () => {
-            
-            // --- 1. SPA ROUTING (Page Navigation) ---
             const navTriggers = document.querySelectorAll('.nav-trigger');
             const pageViews = document.querySelectorAll('.page-view');
             const mobileMenu = document.getElementById('mobile-menu');
@@ -380,38 +321,28 @@
                 trigger.addEventListener('click', (e) => {
                     e.preventDefault();
                     const targetId = trigger.getAttribute('data-target');
-                    
                     pageViews.forEach(page => page.classList.remove('active'));
                     document.getElementById(targetId).classList.add('active');
-                    
                     document.querySelectorAll('.desktop-nav a').forEach(link => link.classList.remove('active-link'));
                     if(trigger.parentElement && trigger.parentElement.classList.contains('desktop-nav')){
                         trigger.classList.add('active-link');
                     }
-
                     mobileMenu.classList.remove('active');
                     window.scrollTo(0, 0);
                 });
             });
 
-            // --- 2. MOBILE MENU TOGGLE ---
             const btnMenu = document.getElementById('btn-menu');
             const closeMenu = document.getElementById('close-menu');
-            
             btnMenu.addEventListener('click', () => mobileMenu.classList.add('active'));
             closeMenu.addEventListener('click', () => mobileMenu.classList.remove('active'));
 
-            // --- 3. SYSTEM STATUS OVERLAY ---
             const btnStatus = document.getElementById('btn-status');
             const overlayStatus = document.getElementById('overlay-status');
             const closeStatus = document.getElementById('close-status');
-
             btnStatus.addEventListener('click', () => overlayStatus.classList.add('active'));
             closeStatus.addEventListener('click', () => overlayStatus.classList.remove('active'));
 
-            // --- 4. FUNCTIONAL BUTTONS & EMAIL DISPATCH (rexusfounder@gmail.com) ---
-            
-            // A. View Full Incident Report Button
             const incidentBtn = document.getElementById('incident-report-btn');
             if (incidentBtn) {
                 incidentBtn.addEventListener('click', () => {
@@ -419,7 +350,7 @@
                 });
             }
 
-            // B. Hero "Get Started" Email Button
+            // Hero "Get Started" Email Link Handler -> sends to rexusfounder@gmail.com
             const getStartedBtn = document.getElementById('hero-get-started-btn');
             const emailInput = document.getElementById('hero-email-input');
             if (getStartedBtn && emailInput) {
@@ -430,26 +361,13 @@
                         return;
                     }
 
-                    getStartedBtn.innerText = "Sending...";
-                    
-                    // >>> PASTE YOUR EMAILJS SERVICE ID AND TEMPLATE ID BELOW <<<
-                    emailjs.send("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", {
-                        from_name: "Hero Newsletter Lead",
-                        from_email: emailVal,
-                        service_required: "Get Started Signup",
-                        message: "New newsletter/get-started lead submitted with email: " + emailVal
-                    }).then(() => {
-                        alert(`Success! Details sent to rexusfounder@gmail.com.`);
-                        emailInput.value = '';
-                        getStartedBtn.innerText = "Get Started";
-                    }, (error) => {
-                        alert("Failed to send. Please check your EmailJS configuration.");
-                        getStartedBtn.innerText = "Get Started";
-                    });
+                    const subject = encodeURIComponent("New Get Started Lead - RexusTech");
+                    const body = encodeURIComponent(`New lead email: ${emailVal}`);
+                    window.location.href = `mailto:rexusfounder@gmail.com?subject=${subject}&body=${body}`;
                 });
             }
 
-            // C. Contact Form "Submit Request" Button
+            // Contact Form Submit Handler -> sends to rexusfounder@gmail.com
             const contactSubmitBtn = document.getElementById('contact-submit-btn');
             if (contactSubmitBtn) {
                 contactSubmitBtn.addEventListener('click', () => {
@@ -463,31 +381,11 @@
                         return;
                     }
 
-                    contactSubmitBtn.innerText = "Sending Request...";
-
-                    // >>> PASTE YOUR EMAILJS SERVICE ID AND TEMPLATE ID BELOW <<<
-                    emailjs.send("service_abc1234", "template_xyz9876", {
-, {
-                        from_name: name,
-                        from_email: email,
-                        service_required: service,
-                        message: details
-                    }).then(() => {
-                        alert("Your request has been sent successfully to rexusfounder@gmail.com!");
-                        
-                        // Reset form inputs
-                        document.getElementById('contact-name').value = '';
-                        document.getElementById('contact-email').value = '';
-                        document.getElementById('contact-service').selectedIndex = 0;
-                        document.getElementById('contact-details').value = '';
-                        contactSubmitBtn.innerText = "Submit Request";
-                    }, (error) => {
-                        alert("Failed to send message. Please try again later.");
-                        contactSubmitBtn.innerText = "Submit Request";
-                    });
+                    const subject = encodeURIComponent(`New Infrastructure Request: ${service}`);
+                    const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\nService Required: ${service}\n\nProject Details:\n${details}`);
+                    window.location.href = `mailto:rexusfounder@gmail.com?subject=${subject}&body=${body}`;
                 });
             }
-
         });
     </script>
 </body>
