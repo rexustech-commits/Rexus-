@@ -71,7 +71,8 @@
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
         /* Hero */
-        .hero { position: relative; min-height: calc(100vh - 80px); display: flex; flex-direction: column; align-items: center; justify-content: flex-start; text-align: center; color: var(--c-navy); background: var(--c-bg-light); padding: 2rem 1.5rem 3rem 1.5rem; }
+        .hero { position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; color: var(--c-navy); background: var(--c-bg-light); padding: 4rem 1.5rem 4rem 1.5rem; }
+        
         .hero-banner-container { width: 100%; max-width: 900px; margin-bottom: 1.5rem; border-radius: 8px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.08); background: var(--c-border); aspect-ratio: 4 / 1; }
         .hero-banner { width: 100%; height: 100%; object-fit: cover; display: block; }
 
@@ -152,7 +153,8 @@
                     <img src="banner.png" alt="RexusTech Enterprise Banner" class="hero-banner" onerror="this.style.display='none'">
                 </div>
                 
-                <h1 class="heading-xl">Build. Automate. Innovate.</h1>
+                <!-- Force heading onto a single line -->
+                <h1 class="heading-xl" style="white-space: nowrap; font-size: clamp(1.3rem, 5vw, 3.2rem);">Build. Automate. Innovate.</h1>
                 <p class="section-desc" style="font-size: 1.15rem; margin-bottom: 2rem;">AI, Computer Vision, IoT & Software solutions for real-world problems.</p>
                 
                 <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-bottom: 2rem;">
@@ -163,22 +165,45 @@
 
             <section class="section-padding text-center" style="background: white; border-top: 1px solid var(--c-border);">
                 <h2 class="heading-lg">Why RexusTech?</h2>
-                <div class="container grid-cards" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); margin-top: 2rem;">
-                    <div class="card" style="padding: 1.5rem;">
-                        <h3 style="margin-bottom: 0; font-size: 1.1rem; color: var(--c-navy);">⚡ Practical Engineering</h3>
+                
+                <!-- Updated Vertical Layout for "Why RexusTech?" -->
+                <div class="container" style="display: flex; flex-direction: column; gap: 1rem; max-width: 450px; margin: 2rem auto 0;">
+                    
+                    <div class="card" style="padding: 1.25rem; display: flex; align-items: center; justify-content: flex-start;">
+                        <h3 style="margin-bottom: 0; font-size: 1.1rem; color: var(--c-navy); display: flex; align-items: center; gap: 1rem;">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--c-blue)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+                            Practical Engineering
+                        </h3>
                     </div>
-                    <div class="card" style="padding: 1.5rem;">
-                        <h3 style="margin-bottom: 0; font-size: 1.1rem; color: var(--c-navy);">🤖 AI-Driven Solutions</h3>
+                    
+                    <div class="card" style="padding: 1.25rem; display: flex; align-items: center; justify-content: flex-start;">
+                        <h3 style="margin-bottom: 0; font-size: 1.1rem; color: var(--c-navy); display: flex; align-items: center; gap: 1rem;">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--c-blue)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect><rect x="9" y="9" width="6" height="6"></rect><line x1="9" y1="1" x2="9" y2="4"></line><line x1="15" y1="1" x2="15" y2="4"></line><line x1="9" y1="20" x2="9" y2="23"></line><line x1="15" y1="20" x2="15" y2="23"></line><line x1="20" y1="9" x2="23" y2="9"></line><line x1="20" y1="14" x2="23" y2="14"></line><line x1="1" y1="9" x2="4" y2="9"></line><line x1="1" y1="14" x2="4" y2="14"></line></svg>
+                            AI-Driven Solutions
+                        </h3>
                     </div>
-                    <div class="card" style="padding: 1.5rem;">
-                        <h3 style="margin-bottom: 0; font-size: 1.1rem; color: var(--c-navy);">🔗 Hardware + Software</h3>
+                    
+                    <div class="card" style="padding: 1.25rem; display: flex; align-items: center; justify-content: flex-start;">
+                        <h3 style="margin-bottom: 0; font-size: 1.1rem; color: var(--c-navy); display: flex; align-items: center; gap: 1rem;">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--c-blue)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 12 12 17 22 12"></polyline><polyline points="2 17 12 22 22 17"></polyline></svg>
+                            Hardware + Software
+                        </h3>
                     </div>
-                    <div class="card" style="padding: 1.5rem;">
-                        <h3 style="margin-bottom: 0; font-size: 1.1rem; color: var(--c-navy);">📊 Data-Driven Decisions</h3>
+                    
+                    <div class="card" style="padding: 1.25rem; display: flex; align-items: center; justify-content: flex-start;">
+                        <h3 style="margin-bottom: 0; font-size: 1.1rem; color: var(--c-navy); display: flex; align-items: center; gap: 1rem;">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--c-blue)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+                            Data-Driven Decisions
+                        </h3>
                     </div>
-                    <div class="card" style="padding: 1.5rem;">
-                        <h3 style="margin-bottom: 0; font-size: 1.1rem; color: var(--c-navy);">🚀 Built for Scale</h3>
+                    
+                    <div class="card" style="padding: 1.25rem; display: flex; align-items: center; justify-content: flex-start;">
+                        <h3 style="margin-bottom: 0; font-size: 1.1rem; color: var(--c-navy); display: flex; align-items: center; gap: 1rem;">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--c-blue)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>
+                            Built for Scale
+                        </h3>
                     </div>
+
                 </div>
             </section>
         </div>
