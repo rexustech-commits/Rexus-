@@ -75,15 +75,13 @@
         .hero-banner-container { width: 100%; max-width: 900px; margin-bottom: 1.5rem; border-radius: 8px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.08); background: var(--c-border); aspect-ratio: 4 / 1; }
         .hero-banner { width: 100%; height: 100%; object-fit: cover; display: block; }
 
-        .hero-cta-module { background: white; color: var(--c-navy); border-radius: 12px; width: 100%; max-width: 550px; padding: 2rem; box-shadow: 0 10px 30px rgba(0,0,0,0.05); text-align: left; border: 1px solid var(--c-border); margin-top: 1rem; }
         .form-input { width: 100%; padding: 0.8rem; border: 1px solid var(--c-border); border-radius: 6px; margin-bottom: 1rem; outline: none; }
         .form-input:focus { border-color: var(--c-blue); }
 
         .page-header { background: var(--c-bg-light); padding: 3rem 2rem; text-align: center; border-bottom: 1px solid var(--c-border); }
         .grid-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin-top: 2rem; }
         .card { background: white; border: 1px solid var(--c-border); padding: 2rem; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.02); }
-        .card h3 { color: var(--c-blue); margin-bottom: 0.75rem; }
-        .problem-solution { font-size: 0.9rem; color: var(--c-text-muted); margin-bottom: 0.5rem; }
+        .card h3 { color: var(--c-blue); margin-bottom: 1rem; }
 
         /* Social Icons */
         .social-links { display: flex; gap: 1rem; justify-content: center; margin-top: 1rem; }
@@ -101,6 +99,8 @@
         .status-indicator { display: flex; align-items: center; gap: 0.5rem; font-weight: 600; font-size: 0.9rem; }
         .dot { width: 10px; height: 10px; border-radius: 50%; }
         .dot-green { background-color: #10B981; box-shadow: 0 0 8px rgba(16, 185, 129, 0.5); }
+        
+        .badge-demo { background: var(--c-bg-light); color: var(--c-text-muted); font-size: 0.75rem; padding: 4px 8px; border-radius: 20px; font-weight: 500; vertical-align: middle; margin-left: 0.75rem; border: 1px solid var(--c-border); }
 
         footer { background: var(--c-navy); color: white; text-align: center; padding: 2rem; margin-top: auto; }
     </style>
@@ -152,17 +152,32 @@
                     <img src="banner.jpg" alt="RexusTech Enterprise Banner" class="hero-banner" onerror="this.style.display='none'">
                 </div>
                 
-                <!-- 1. Homepage Headline: Clear one-sentence value proposition -->
-                <h1 class="heading-xl">RexusTech builds scalable AI, IoT, and high-performance software infrastructure to automate modern enterprises.</h1>
+                <h1 class="heading-xl">Build. Automate. Innovate.</h1>
+                <p class="section-desc" style="font-size: 1.15rem; margin-bottom: 2rem;">AI, Computer Vision, IoT & Software solutions for real-world problems.</p>
                 
-                <!-- 5. Stronger CTAs -->
-                <div class="hero-cta-module">
-                    <h3 style="margin-bottom: 0.5rem;">Partner with our engineering team</h3>
-                    <p style="color: var(--c-text-muted); margin-bottom: 1.2rem; font-size: 0.95rem;">Accelerate your infrastructure rollout or request an architecture demo.</p>
-                    <input type="email" id="hero-email-input" placeholder="Enter your business email" class="form-input">
-                    <div style="display: flex; gap: 0.75rem;">
-                        <button class="btn-dark" id="hero-get-started-btn" style="flex: 1;">Request a Demo</button>
-                        <button class="btn-outline" onclick="document.querySelector('[data-target=\'page-contact\']').click()" style="flex: 1;">Work With Us</button>
+                <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-bottom: 2rem;">
+                    <button class="btn-dark" onclick="document.querySelector('[data-target=\'page-products\']').click()">Explore Solutions</button>
+                    <button class="btn-outline" onclick="document.querySelector('[data-target=\'page-contact\']').click()">Work With Us</button>
+                </div>
+            </section>
+
+            <section class="section-padding text-center" style="background: white; border-top: 1px solid var(--c-border);">
+                <h2 class="heading-lg">Why RexusTech?</h2>
+                <div class="container grid-cards" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); margin-top: 2rem;">
+                    <div class="card" style="padding: 1.5rem;">
+                        <h3 style="margin-bottom: 0; font-size: 1.1rem; color: var(--c-navy);">⚡ Practical Engineering</h3>
+                    </div>
+                    <div class="card" style="padding: 1.5rem;">
+                        <h3 style="margin-bottom: 0; font-size: 1.1rem; color: var(--c-navy);">🤖 AI-Driven Solutions</h3>
+                    </div>
+                    <div class="card" style="padding: 1.5rem;">
+                        <h3 style="margin-bottom: 0; font-size: 1.1rem; color: var(--c-navy);">🔗 Hardware + Software</h3>
+                    </div>
+                    <div class="card" style="padding: 1.5rem;">
+                        <h3 style="margin-bottom: 0; font-size: 1.1rem; color: var(--c-navy);">📊 Data-Driven Decisions</h3>
+                    </div>
+                    <div class="card" style="padding: 1.5rem;">
+                        <h3 style="margin-bottom: 0; font-size: 1.1rem; color: var(--c-navy);">🚀 Built for Scale</h3>
                     </div>
                 </div>
             </section>
@@ -179,9 +194,8 @@
                     <span style="background: var(--c-blue); color: white; padding: 4px 10px; border-radius: 4px; font-size: 0.8rem; font-weight: 500;">Founder & CEO</span>
                     <h2 style="color: var(--c-navy); margin-top: 0.75rem; font-size: 1.8rem;">RexusTech Founder</h2>
                     <p style="color: var(--c-text-muted); font-size: 1.05rem; margin: 1rem 0;">
-                        Welcome to RexusTech. As the Founder and CEO, I lead our technical roadmap bridging the gap between custom embedded hardware, edge IoT, and production-grade AI systems. Our focus is eliminating manual enterprise friction through clean, scalable, autonomous code and infrastructure.
+                        Welcome to RexusTech. As Founder and CEO, my vision is to bridge the gap between custom embedded hardware, edge IoT, and production-grade AI systems. We are building the infrastructure to eliminate manual enterprise friction through clean, scalable, and autonomous code.
                     </p>
-                    <!-- Contact CEO button routes directly to suganyas2382006@gmail.com -->
                     <button class="btn-dark" id="contact-ceo-btn">Contact CEO Directly</button>
                 </div>
             </div>
@@ -194,20 +208,34 @@
                 <p class="section-desc">Production-ready platforms engineered to solve critical operational bottlenecks.</p>
             </div>
             <div class="container section-padding grid-cards">
-                <div class="card">
+                <div class="card" style="display: flex; flex-direction: column;">
                     <h3>Rexus Engine</h3>
-                    <p class="problem-solution"><strong>Problem Solved:</strong> High latency and generic outputs when deploying complex foundation models on private enterprise datasets.</p>
-                    <p style="color: var(--c-text-muted); font-size: 0.95rem; margin-top: 0.5rem;">Adapts and fine-tunes best-in-class foundation models securely for specific enterprise parameters with verified zero data leaks.</p>
+                    <div style="flex-grow: 1; font-size: 0.95rem; color: var(--c-text-muted); margin-bottom: 1.5rem;">
+                        <p style="margin-bottom: 0.5rem;"><strong style="color: var(--c-navy);">What it does:</strong> Adapts and fine-tunes best-in-class foundation models securely for specific enterprise parameters.</p>
+                        <p style="margin-bottom: 0.5rem;"><strong style="color: var(--c-navy);">Who it's for:</strong> Organizations requiring private, locally-hosted LLMs and AI processing.</p>
+                        <p><strong style="color: var(--c-navy);">Key benefit:</strong> Verified zero data leaks with low-latency outputs.</p>
+                    </div>
+                    <button class="btn-outline" style="width: 100%; padding: 0.6rem;" onclick="document.querySelector('[data-target=\'page-contact\']').click()">Demo / Learn More</button>
                 </div>
-                <div class="card">
+                
+                <div class="card" style="display: flex; flex-direction: column;">
                     <h3>NeuroVision Core</h3>
-                    <p class="problem-solution"><strong>Problem Solved:</strong> Manual visual quality control failures and unindexed high-resolution imagery streams in manufacturing floors.</p>
-                    <p style="color: var(--c-text-muted); font-size: 0.95rem; margin-top: 0.5rem;">Specialized deep-learning framework for real-time video parsing, object tracking, and automated defect recognition.</p>
+                    <div style="flex-grow: 1; font-size: 0.95rem; color: var(--c-text-muted); margin-bottom: 1.5rem;">
+                        <p style="margin-bottom: 0.5rem;"><strong style="color: var(--c-navy);">What it does:</strong> Specialized deep-learning framework for real-time video parsing, object tracking, and defect recognition.</p>
+                        <p style="margin-bottom: 0.5rem;"><strong style="color: var(--c-navy);">Who it's for:</strong> Manufacturing floors and facilities relying on visual quality control.</p>
+                        <p><strong style="color: var(--c-navy);">Key benefit:</strong> Eliminates manual visual inspection failures and automates high-resolution data streams.</p>
+                    </div>
+                    <button class="btn-outline" style="width: 100%; padding: 0.6rem;" onclick="document.querySelector('[data-target=\'page-contact\']').click()">Demo / Learn More</button>
                 </div>
-                <div class="card">
+
+                <div class="card" style="display: flex; flex-direction: column;">
                     <h3>RexusFlow Edge</h3>
-                    <p class="problem-solution"><strong>Problem Solved:</strong> Disconnected hardware sensor data silos and network bottlenecks across industrial plants.</p>
-                    <p style="color: var(--c-text-muted); font-size: 0.95rem; margin-top: 0.5rem;">An IoT bridge platform connecting localized hardware directly to secure cloud systems with near-zero latency.</p>
+                    <div style="flex-grow: 1; font-size: 0.95rem; color: var(--c-text-muted); margin-bottom: 1.5rem;">
+                        <p style="margin-bottom: 0.5rem;"><strong style="color: var(--c-navy);">What it does:</strong> An IoT bridge platform connecting localized hardware directly to secure cloud systems.</p>
+                        <p style="margin-bottom: 0.5rem;"><strong style="color: var(--c-navy);">Who it's for:</strong> Industrial plants and enterprises managing disconnected hardware sensor data.</p>
+                        <p><strong style="color: var(--c-navy);">Key benefit:</strong> Near-zero latency industrial monitoring and eliminated network bottlenecks.</p>
+                    </div>
+                    <button class="btn-outline" style="width: 100%; padding: 0.6rem;" onclick="document.querySelector('[data-target=\'page-contact\']').click()">Demo / Learn More</button>
                 </div>
             </div>
         </div>
@@ -275,8 +303,10 @@
                         <option value="Software Engineering">Software Engineering</option>
                     </select>
                     <textarea id="contact-details" placeholder="Project Details" class="form-input" rows="4"></textarea>
-                    <div style="display: flex; gap: 1rem; margin-bottom: 2rem;">
-                        <button class="btn-dark" id="contact-submit-btn" style="flex: 1;">Send Request</button>
+                    
+                    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; margin-bottom: 2rem;">
+                        <button class="btn-dark" id="contact-submit-btn" style="width: 100%;">Start a Project</button>
+                        <p style="color: var(--c-text-muted); font-size: 0.9rem; margin-top: 0.5rem;">Tell us what you're building. We'll get back to you with the next steps.</p>
                     </div>
 
                     <!-- Direct Contact Information with Icons -->
@@ -310,7 +340,10 @@
     <div class="overlay-ui" id="overlay-status">
         <button class="close-overlay" id="close-status">✕</button>
         <div class="status-panel">
-            <h2 style="margin-bottom: 0.5rem; font-size: 1.8rem;">System Status</h2>
+            <h2 style="margin-bottom: 0.5rem; font-size: 1.8rem; display: flex; align-items: center;">
+                System Status 
+                <span class="badge-demo">Demo / Prototype</span>
+            </h2>
             <p style="color: var(--c-text-muted); margin-bottom: 2rem;">Current health of RexusTech global infrastructure.</p>
             <div style="display: flex; flex-direction: column;">
                 <div class="status-item">
@@ -365,24 +398,7 @@
             btnStatus.addEventListener('click', () => overlayStatus.classList.add('active'));
             closeStatus.addEventListener('click', () => overlayStatus.classList.remove('active'));
 
-            // Hero Get Started / Request Demo -> Routes to Contact Us email (rexusfounder@gmail.com)
-            const getStartedBtn = document.getElementById('hero-get-started-btn');
-            const emailInput = document.getElementById('hero-email-input');
-            if (getStartedBtn && emailInput) {
-                getStartedBtn.addEventListener('click', () => {
-                    const emailVal = emailInput.value.trim();
-                    if (!emailVal || !emailVal.includes('@')) {
-                        alert("Please enter a valid business email address.");
-                        return;
-                    }
-
-                    const subject = encodeURIComponent("Demo Request - RexusTech");
-                    const body = encodeURIComponent(`Request demo lead email: ${emailVal}`);
-                    window.location.href = `mailto:rexusfounder@gmail.com?subject=${subject}&body=${body}`;
-                });
-            }
-
-            // Contact Form Submit Handler -> Routes to Contact Us email (rexusfounder@gmail.com)
+            // Contact Form Submit Handler -> Routes to Contact Us email
             const contactSubmitBtn = document.getElementById('contact-submit-btn');
             if (contactSubmitBtn) {
                 contactSubmitBtn.addEventListener('click', () => {
@@ -396,13 +412,13 @@
                         return;
                     }
 
-                    const subject = encodeURIComponent(`Work With Us Request: ${service}`);
+                    const subject = encodeURIComponent(`Start a Project Request: ${service}`);
                     const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\nService Required: ${service}\n\nProject Details:\n${details}`);
                     window.location.href = `mailto:rexusfounder@gmail.com?subject=${subject}&body=${body}`;
                 });
             }
 
-            // CEO Contact Button -> Routes directly to CEO email (suganyas2382006@gmail.com)
+            // CEO Contact Button -> Routes directly to CEO email
             const contactCeoBtn = document.getElementById('contact-ceo-btn');
             if (contactCeoBtn) {
                 contactCeoBtn.addEventListener('click', () => {
