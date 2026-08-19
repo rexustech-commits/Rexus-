@@ -177,7 +177,8 @@
                     <p style="color: var(--c-text-muted); font-size: 1.05rem; margin: 1rem 0;">
                         Welcome to RexusTech. As the Founder and CEO, I lead our technical roadmap bridging the gap between custom embedded hardware, edge IoT, and production-grade AI systems. Our focus is eliminating manual enterprise friction through clean, scalable, autonomous code and infrastructure.
                     </p>
-                    <button class="btn-dark" onclick="document.querySelector('[data-target=\'page-contact\']').click()">Contact Founder</button>
+                    <!-- Contact CEO button routes directly to suganyas2382006@gmail.com -->
+                    <button class="btn-dark" id="contact-ceo-btn">Contact CEO Directly</button>
                 </div>
             </div>
         </div>
@@ -348,7 +349,7 @@
                 });
             }
 
-            // Hero Get Started / Request Demo
+            // Hero Get Started / Request Demo -> Routes to Contact Us email (rexusfounder@gmail.com)
             const getStartedBtn = document.getElementById('hero-get-started-btn');
             const emailInput = document.getElementById('hero-email-input');
             if (getStartedBtn && emailInput) {
@@ -361,11 +362,11 @@
 
                     const subject = encodeURIComponent("Demo Request - RexusTech");
                     const body = encodeURIComponent(`Request demo lead email: ${emailVal}`);
-                    window.location.href = `mailto:suganyas2382006@gmail.com?subject=${subject}&body=${body}`;
+                    window.location.href = `mailto:rexusfounder@gmail.com?subject=${subject}&body=${body}`;
                 });
             }
 
-            // Contact Form Submit Handler
+            // Contact Form Submit Handler -> Routes to Contact Us email (rexusfounder@gmail.com)
             const contactSubmitBtn = document.getElementById('contact-submit-btn');
             if (contactSubmitBtn) {
                 contactSubmitBtn.addEventListener('click', () => {
@@ -381,6 +382,16 @@
 
                     const subject = encodeURIComponent(`Work With Us Request: ${service}`);
                     const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\nService Required: ${service}\n\nProject Details:\n${details}`);
+                    window.location.href = `mailto:rexusfounder@gmail.com?subject=${subject}&body=${body}`;
+                });
+            }
+
+            // CEO Contact Button -> Routes directly to CEO email (suganyas2382006@gmail.com)
+            const contactCeoBtn = document.getElementById('contact-ceo-btn');
+            if (contactCeoBtn) {
+                contactCeoBtn.addEventListener('click', () => {
+                    const subject = encodeURIComponent("Direct CEO Inquiry - RexusTech");
+                    const body = encodeURIComponent("Hello CEO,\n\nI would like to connect with you regarding:");
                     window.location.href = `mailto:suganyas2382006@gmail.com?subject=${subject}&body=${body}`;
                 });
             }
