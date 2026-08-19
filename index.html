@@ -8,55 +8,105 @@
 
     <style>
         :root {
-            --c-navy: #151C3B;
-            --c-navy-light: #2A365C;
-            --c-blue: #6366F1;
-            --c-bg-light: #F2F5F9;
-            --c-bg-white: #FFFFFF;
-            --c-text-dark: #111827;
-            --c-text-muted: #4B5563;
-            --c-border: #E5E7EB;
-            --font-main: 'Inter', sans-serif;
-            --transition: all 0.3s ease;
+            /* Minimalist Enterprise Palette */
+            --c-primary: #0F172A;     /* Slate 900 - Tech Dark */
+            --c-accent: #0066FF;      /* Pure Blue - Google/Microsoft style */
+            --c-bg: #FFFFFF;          /* Pure White */
+            --c-bg-alt: #F8FAFC;      /* Slate 50 - Extremely subtle off-white */
+            --c-text-main: #334155;   /* Slate 700 - Soft body text */
+            --c-text-muted: #64748B;  /* Slate 500 - Secondary text */
+            --c-border: #E2E8F0;      /* Slate 200 - Very soft structural lines */
+            
+            --font-main: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            --container-width: 1200px;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
-        body { font-family: var(--font-main); color: var(--c-navy); background: var(--c-bg-white); line-height: 1.5; overflow-x: hidden; display: flex; flex-direction: column; min-height: 100vh; }
+        body { 
+            font-family: var(--font-main); 
+            color: var(--c-primary); 
+            background: var(--c-bg); 
+            line-height: 1.6; 
+            overflow-x: hidden; 
+            display: flex; 
+            flex-direction: column; 
+            min-height: 100vh; 
+            -webkit-font-smoothing: antialiased;
+        }
+        
         main { flex: 1; }
-
         a, button { text-decoration: none; color: inherit; cursor: pointer; -webkit-tap-highlight-color: transparent; }
         ul { list-style: none; }
         
-        h1, h2, h3, h4 { font-weight: 500; letter-spacing: -0.02em; }
-        .heading-xl { font-size: clamp(2rem, 4vw, 3.2rem); line-height: 1.1; margin-bottom: 1rem; font-weight: 600; }
-        .heading-lg { font-size: clamp(1.8rem, 3vw, 2.2rem); margin-bottom: 1rem; }
-        .heading-md { font-size: 1.4rem; margin-bottom: 0.75rem; }
-        .section-desc { color: var(--c-text-muted); font-size: 1.05rem; max-width: 650px; margin: 0 auto; }
+        /* Typography */
+        h1, h2, h3, h4 { font-weight: 600; letter-spacing: -0.03em; color: var(--c-primary); line-height: 1.2; }
+        .heading-xl { font-size: clamp(2.5rem, 5vw, 4.5rem); margin-bottom: 1.5rem; font-weight: 700; }
+        .heading-lg { font-size: clamp(2rem, 3vw, 2.5rem); margin-bottom: 1rem; }
+        .heading-md { font-size: 1.25rem; margin-bottom: 0.5rem; }
+        .section-desc { color: var(--c-text-muted); font-size: 1.125rem; max-width: 700px; margin: 0 auto; }
+        p { color: var(--c-text-main); }
         
-        .section-padding { padding: 3.5rem 1.5rem; }
+        /* Layouts */
+        .section-padding { padding: 6rem 1.5rem; }
+        .section-alt { background-color: var(--c-bg-alt); }
         .text-center { text-align: center; }
-        .container { max-width: 1100px; margin: 0 auto; }
-
-        .icon-btn { width: 44px; height: 44px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; border: none; background: transparent; color: white; transition: background 0.2s; }
-        .icon-btn:hover { background: rgba(255,255,255,0.1); }
-        .btn-dark { background: var(--c-navy); color: white; padding: 0.8rem 1.5rem; border-radius: 6px; font-weight: 500; display: inline-flex; align-items: center; border: none; cursor: pointer; justify-content: center; gap: 0.5rem; transition: background 0.2s; }
-        .btn-dark:hover { background: var(--c-blue); }
-        .btn-outline { background: transparent; color: var(--c-navy); border: 2px solid var(--c-navy); padding: 0.75rem 1.5rem; border-radius: 6px; font-weight: 500; display: inline-flex; align-items: center; cursor: pointer; justify-content: center; transition: all 0.2s; }
-        .btn-outline:hover { background: var(--c-navy); color: white; }
-
-        header { position: fixed; top: 0; left: 0; width: 100%; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; z-index: 100; background: var(--c-navy); color: white; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+        .container { max-width: var(--container-width); margin: 0 auto; }
         
-        .brand-container { display: flex; align-items: center; gap: 0.75rem; cursor: pointer; }
-        .brand-logo { height: 32px; width: auto; object-fit: contain; }
-        .logo-text { font-size: 1.5rem; font-weight: 600; letter-spacing: -0.02em; margin: 0; }
-        
-        .desktop-nav { display: none; gap: 2rem; }
-        
-        .desktop-nav a { font-size: 0.95rem; font-weight: 500; opacity: 0.8; transition: all 0.3s ease; user-select: none; }
-        .desktop-nav a:hover, .desktop-nav a.active-link { opacity: 1; color: #7C8BFF; }
+        .grid-layout { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+            gap: 4rem 3rem; 
+            margin-top: 3.5rem; 
+        }
 
-        .header-actions { display: flex; gap: 0.5rem; }
+        /* Buttons (Flat & Modern) */
+        .btn-group { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-bottom: 2rem; }
+        .btn-primary { 
+            background: var(--c-accent); 
+            color: white; 
+            padding: 14px 28px; 
+            border-radius: 6px; 
+            font-weight: 500; 
+            border: none; 
+            transition: all 0.2s ease; 
+        }
+        .btn-primary:hover { background: #0052CC; transform: translateY(-1px); }
+        
+        .btn-secondary { 
+            background: var(--c-bg-alt); 
+            color: var(--c-primary); 
+            padding: 14px 28px; 
+            border-radius: 6px; 
+            font-weight: 500; 
+            border: none; 
+            transition: all 0.2s ease; 
+        }
+        .btn-secondary:hover { background: var(--c-border); }
+
+        .icon-btn { width: 44px; height: 44px; border-radius: 50%; display: flex; align-items: center; justify-content: center; background: transparent; transition: background 0.2s; color: var(--c-primary); border: none; }
+        .icon-btn:hover { background: var(--c-bg-alt); }
+
+        /* Clean White Header */
+        header { 
+            position: fixed; top: 0; left: 0; width: 100%; 
+            padding: 1rem 2rem; 
+            display: flex; justify-content: space-between; align-items: center; 
+            z-index: 100; 
+            background: rgba(255, 255, 255, 0.95); 
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--c-border);
+        }
+        
+        .brand-container { display: flex; align-items: center; gap: 0.75rem; }
+        .brand-logo { height: 28px; width: auto; object-fit: contain; }
+        .logo-text { font-size: 1.25rem; font-weight: 700; letter-spacing: -0.02em; }
+        
+        .desktop-nav { display: none; gap: 2.5rem; }
+        .desktop-nav a { font-size: 0.9rem; font-weight: 500; color: var(--c-text-muted); transition: color 0.3s ease; user-select: none; }
+        .desktop-nav a:hover, .desktop-nav a.active-link { color: var(--c-primary); }
+
+        .header-actions { display: flex; gap: 0.25rem; }
         .menu-toggle { display: block; }
 
         @media (min-width: 900px) {
@@ -64,55 +114,77 @@
             .menu-toggle { display: none; }
         }
 
-        .mobile-menu { position: fixed; top: 0; left: -100%; width: 100%; height: 100vh; background: var(--c-bg-light); z-index: 1000; transition: left 0.3s ease; padding: 2rem; display: flex; flex-direction: column; }
+        /* Mobile Menu */
+        .mobile-menu { position: fixed; top: 0; left: -100%; width: 100%; height: 100vh; background: var(--c-bg); z-index: 1000; transition: left 0.4s cubic-bezier(0.16, 1, 0.3, 1); padding: 2rem; display: flex; flex-direction: column; }
         .mobile-menu.active { left: 0; }
         .menu-links li { margin-bottom: 1.5rem; }
-        .menu-links a { font-size: 1.5rem; font-weight: 500; color: var(--c-navy); transition: color 0.3s ease; }
-        .menu-links a.active-link { color: var(--c-blue); }
-        .menu-close { align-self: flex-end; color: var(--c-navy); background: none; border: none; font-size: 2rem; cursor: pointer; margin-bottom: 2rem; }
+        .menu-links a { font-size: 1.5rem; font-weight: 500; color: var(--c-text-muted); transition: color 0.3s ease; }
+        .menu-links a.active-link { color: var(--c-primary); }
+        .menu-close { align-self: flex-end; background: none; border: none; font-size: 2rem; cursor: pointer; color: var(--c-primary); margin-bottom: 2rem; }
 
-        .page-view { display: none; padding-top: 80px; min-height: 80vh; animation: fadeIn 0.4s ease forwards; }
+        /* Page Views */
+        .page-view { display: none; padding-top: 70px; min-height: 85vh; animation: fadeIn 0.5s ease forwards; }
         .page-view.active { display: block; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
 
-        .hero { position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; color: var(--c-navy); background: var(--c-bg-white); padding: 4rem 1.5rem 1.5rem 1.5rem; }
-        
-        .hero-banner-container { width: 100%; max-width: 900px; margin-bottom: 1.5rem; border-radius: 8px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.08); background: var(--c-border); aspect-ratio: 4 / 1; }
+        /* Hero Section */
+        .hero { display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 6rem 1.5rem 4rem 1.5rem; }
+        .hero-banner-container { width: 100%; max-width: 1000px; margin-bottom: 3rem; border-radius: 12px; overflow: hidden; background: var(--c-bg-alt); aspect-ratio: 4 / 1; }
         .hero-banner { width: 100%; height: 100%; object-fit: cover; display: block; }
 
-        .form-input { width: 100%; padding: 0.8rem; border: 1px solid var(--c-border); border-radius: 6px; margin-bottom: 1rem; outline: none; }
-        .form-input:focus { border-color: var(--c-blue); }
+        /* Centered Borderless Items (Replacing Cards) */
+        .feature-item { display: flex; flex-direction: column; align-items: center; text-align: center; }
+        .feature-icon { margin-bottom: 1.25rem; color: var(--c-accent); display: flex; align-items: center; justify-content: center; }
+        
+        .product-item { text-align: left; padding: 1rem 0; }
+        .product-item h3 { margin-bottom: 1rem; color: var(--c-primary); }
+        .product-item p { margin-bottom: 0.75rem; font-size: 0.95rem; }
+        
+        .tag { background: var(--c-bg-alt); color: var(--c-accent); padding: 4px 12px; border-radius: 20px; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 1rem; display: inline-block; }
 
-        .page-header { background: var(--c-bg-light); padding: 3rem 2rem; text-align: center; border-bottom: 1px solid var(--c-border); }
-        .grid-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin-top: 2rem; }
-        .card { background: white; border: 1px solid var(--c-border); padding: 2rem; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.02); }
-        .card h3 { color: var(--c-blue); margin-bottom: 1rem; }
+        /* Forms - Google Material Line Style */
+        .form-container { width: 100%; max-width: 600px; margin: 0 auto; text-align: left; }
+        .form-input { 
+            width: 100%; 
+            padding: 16px 0; 
+            border: none; 
+            border-bottom: 1px solid var(--c-border); 
+            background: transparent; 
+            margin-bottom: 1.5rem; 
+            font-size: 1rem; 
+            color: var(--c-primary); 
+            font-family: var(--font-main);
+            transition: border-color 0.3s; 
+            outline: none;
+        }
+        .form-input::placeholder { color: var(--c-text-muted); }
+        .form-input:focus { border-bottom-color: var(--c-accent); }
 
-        .social-links { display: flex; gap: 1rem; justify-content: center; margin-top: 1rem; }
-        .social-btn { display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 50%; background: var(--c-bg-light); color: var(--c-navy); transition: all 0.2s ease; }
-        .social-btn:hover { background: var(--c-blue); color: white; transform: translateY(-3px); }
+        /* Social Icons */
+        .social-links { display: flex; gap: 1.5rem; justify-content: center; margin-top: 2rem; padding-top: 2rem; }
+        .social-btn { color: var(--c-text-muted); transition: color 0.2s ease; }
+        .social-btn:hover { color: var(--c-accent); }
 
-        .overlay-ui { position: fixed; top: 0; left: 0; width: 100%; height: 100vh; background: rgba(21, 28, 59, 0.95); z-index: 2000; display: none; align-items: center; justify-content: center; flex-direction: column; color: white; padding: 2rem; }
+        /* Modals */
+        .overlay-ui { position: fixed; top: 0; left: 0; width: 100%; height: 100vh; background: rgba(15, 23, 42, 0.8); backdrop-filter: blur(5px); z-index: 2000; display: none; align-items: center; justify-content: center; color: var(--c-primary); padding: 1.5rem; }
         .overlay-ui.active { display: flex; animation: fadeIn 0.3s ease; }
         .close-overlay { position: absolute; top: 2rem; right: 2rem; background: none; border: none; color: white; font-size: 2rem; cursor: pointer; }
         
-        .status-panel { background: white; color: var(--c-navy); width: 100%; max-width: 500px; padding: 2.5rem; border-radius: 12px; box-shadow: 0 20px 40px rgba(0,0,0,0.3); }
-        .status-item { display: flex; justify-content: space-between; align-items: center; padding: 1rem 0; border-bottom: 1px solid var(--c-border); }
+        .status-panel { background: white; width: 100%; max-width: 480px; padding: 3rem; border-radius: 12px; text-align: left; }
+        .status-item { display: flex; justify-content: space-between; align-items: center; padding: 1.25rem 0; border-bottom: 1px solid var(--c-border); }
         .status-item:last-child { border-bottom: none; }
-        .status-indicator { display: flex; align-items: center; gap: 0.5rem; font-weight: 600; font-size: 0.9rem; }
-        .dot { width: 10px; height: 10px; border-radius: 50%; }
-        .dot-green { background-color: #10B981; box-shadow: 0 0 8px rgba(16, 185, 129, 0.5); }
-        
-        .badge-demo { background: var(--c-bg-light); color: var(--c-text-muted); font-size: 0.75rem; padding: 4px 8px; border-radius: 20px; font-weight: 500; vertical-align: middle; margin-left: 0.75rem; border: 1px solid var(--c-border); }
+        .status-indicator { display: flex; align-items: center; gap: 0.5rem; font-size: 0.9rem; color: var(--c-text-main); }
+        .dot { width: 8px; height: 8px; border-radius: 50%; }
+        .dot-green { background-color: #10B981; }
 
-        footer { background: var(--c-navy); color: white; text-align: center; padding: 2rem; margin-top: auto; }
+        footer { padding: 3rem 1.5rem; text-align: center; color: var(--c-text-muted); font-size: 0.85rem; }
     </style>
 </head>
 <body>
 
     <header>
         <div class="brand-container nav-trigger" data-target="page-home">
-            <img src="logo.jpg" alt="RexusTech Logo" class="brand-logo" onerror="this.style.display='none'">
+            <img src="logo.jpg" alt="" class="brand-logo" onerror="this.style.display='none'">
             <span class="logo-text">RexusTech</span>
         </div>
         
@@ -120,16 +192,15 @@
             <a class="nav-trigger active-link" data-target="page-home">Home</a>
             <a class="nav-trigger" data-target="page-about">Founder & About</a>
             <a class="nav-trigger" data-target="page-products">Products</a>
-            <a class="nav-trigger" data-target="page-services">Services</a>
             <a class="nav-trigger" data-target="page-research">Proof & R&D</a>
             <a class="nav-trigger" data-target="page-contact">Contact Us</a>
         </nav>
 
         <div class="header-actions">
-            <button class="icon-btn" id="btn-status" aria-label="System Status" style="color: white;">
+            <button class="icon-btn" id="btn-status" aria-label="System Status">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
             </button>
-            <button class="icon-btn menu-toggle" id="btn-menu" style="color: white;">
+            <button class="icon-btn menu-toggle" id="btn-menu">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
             </button>
         </div>
@@ -141,7 +212,6 @@
             <li><a class="nav-trigger active-link" data-target="page-home">Home</a></li>
             <li><a class="nav-trigger" data-target="page-about">Founder & About</a></li>
             <li><a class="nav-trigger" data-target="page-products">Products</a></li>
-            <li><a class="nav-trigger" data-target="page-services">Services</a></li>
             <li><a class="nav-trigger" data-target="page-research">Proof & R&D</a></li>
             <li><a class="nav-trigger" data-target="page-contact">Contact Us</a></li>
         </ul>
@@ -150,213 +220,183 @@
     <main>
         <!-- 1. HOME -->
         <div id="page-home" class="page-view active">
-            <section class="hero">
+            <section class="hero container">
                 <div class="hero-banner-container">
                     <img src="banner.png" alt="RexusTech Enterprise Banner" class="hero-banner" onerror="this.style.display='none'">
                 </div>
                 
-                <h1 class="heading-xl" style="white-space: nowrap; font-size: clamp(1.3rem, 5vw, 3.2rem);">Build. Automate. Innovate</h1>
-                <p class="section-desc" style="font-size: 1.15rem; margin-bottom: 2rem;">AI, Computer Vision, IoT & Software solutions for real-world problems.</p>
+                <h1 class="heading-xl">Build. Automate. Innovate</h1>
+                <p class="section-desc" style="margin-bottom: 2.5rem;">AI, Computer Vision, IoT & Software solutions engineered for real-world enterprise infrastructure.</p>
                 
-                <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-bottom: 1rem;">
-                    <button class="btn-dark" onclick="document.querySelector('[data-target=\'page-products\']').click()">Explore Solutions</button>
-                    <button class="btn-outline" onclick="document.querySelector('[data-target=\'page-contact\']').click()">Work With Us</button>
+                <div class="btn-group">
+                    <button class="btn-primary" onclick="document.querySelector('[data-target=\'page-products\']').click()">Explore Solutions</button>
+                    <button class="btn-secondary" onclick="document.querySelector('[data-target=\'page-contact\']').click()">Work With Us</button>
                 </div>
             </section>
 
-            <section class="text-center" style="background: var(--c-bg-white); padding: 1.5rem 1.5rem 4rem 1.5rem;">
-                <h2 class="heading-lg">Why RexusTech?</h2>
-                
-                <div class="container" style="display: flex; flex-direction: column; gap: 1rem; max-width: 750px; width: 100%; margin: 1.5rem auto 0;">
+            <!-- Services Section incorporated into Home -->
+            <section class="section-padding section-alt text-center">
+                <div class="container">
+                    <h2 class="heading-lg">Services We Provide</h2>
+                    <p class="section-desc">Engineering intelligent, automated, and embedded systems.</p>
                     
-                    <div class="card" style="padding: 1.25rem 2rem; display: flex; align-items: center; justify-content: flex-start;">
-                        <h3 style="margin-bottom: 0; font-size: 1.1rem; color: var(--c-navy); display: flex; align-items: center; gap: 1rem;">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--c-blue)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
-                            Practical Engineering
-                        </h3>
+                    <div class="grid-layout">
+                        <div class="feature-item">
+                            <h3 class="heading-md">Computer Vision</h3>
+                            <p>Optical parsing, real-time video analytics, and spatial intelligence.</p>
+                        </div>
+                        <div class="feature-item">
+                            <h3 class="heading-md">AI & Data Analytics</h3>
+                            <p>Predictive modeling and automated ETL data pipelines.</p>
+                        </div>
+                        <div class="feature-item">
+                            <h3 class="heading-md">Software Engineering</h3>
+                            <p>High-performance cloud architectures, web apps, and secure APIs.</p>
+                        </div>
+                        <div class="feature-item">
+                            <h3 class="heading-md">IoT & Embedded</h3>
+                            <p>Custom firmware development and device-to-cloud synchronization.</p>
+                        </div>
                     </div>
-                    
-                    <div class="card" style="padding: 1.25rem 2rem; display: flex; align-items: center; justify-content: flex-start;">
-                        <h3 style="margin-bottom: 0; font-size: 1.1rem; color: var(--c-navy); display: flex; align-items: center; gap: 1rem;">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--c-blue)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect><rect x="9" y="9" width="6" height="6"></rect><line x1="9" y1="1" x2="9" y2="4"></line><line x1="15" y1="1" x2="15" y2="4"></line><line x1="9" y1="20" x2="9" y2="23"></line><line x1="15" y1="20" x2="15" y2="23"></line><line x1="20" y1="9" x2="23" y2="9"></line><line x1="20" y1="14" x2="23" y2="14"></line><line x1="1" y1="9" x2="4" y2="9"></line><line x1="1" y1="14" x2="4" y2="14"></line></svg>
-                            AI-Driven Solutions
-                        </h3>
-                    </div>
-                    
-                    <div class="card" style="padding: 1.25rem 2rem; display: flex; align-items: center; justify-content: flex-start;">
-                        <h3 style="margin-bottom: 0; font-size: 1.1rem; color: var(--c-navy); display: flex; align-items: center; gap: 1rem;">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--c-blue)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 12 12 17 22 12"></polyline><polyline points="2 17 12 22 22 17"></polyline></svg>
-                            Hardware + Software
-                        </h3>
-                    </div>
-                    
-                    <div class="card" style="padding: 1.25rem 2rem; display: flex; align-items: center; justify-content: flex-start;">
-                        <h3 style="margin-bottom: 0; font-size: 1.1rem; color: var(--c-navy); display: flex; align-items: center; gap: 1rem;">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--c-blue)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
-                            Data-Driven Decisions
-                        </h3>
-                    </div>
-                    
-                    <div class="card" style="padding: 1.25rem 2rem; display: flex; align-items: center; justify-content: flex-start;">
-                        <h3 style="margin-bottom: 0; font-size: 1.1rem; color: var(--c-navy); display: flex; align-items: center; gap: 1rem;">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--c-blue)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>
-                            Built for Scale
-                        </h3>
-                    </div>
+                </div>
+            </section>
 
+            <!-- Why RexusTech -->
+            <section class="section-padding text-center">
+                <div class="container">
+                    <h2 class="heading-lg">Why RexusTech?</h2>
+                    <div class="grid-layout">
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+                            </div>
+                            <h3 class="heading-md">Practical Engineering</h3>
+                            <p>Solutions designed for deployment, not just theory.</p>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect><rect x="9" y="9" width="6" height="6"></rect><line x1="9" y1="1" x2="9" y2="4"></line><line x1="15" y1="1" x2="15" y2="4"></line><line x1="9" y1="20" x2="9" y2="23"></line><line x1="15" y1="20" x2="15" y2="23"></line><line x1="20" y1="9" x2="23" y2="9"></line><line x1="20" y1="14" x2="23" y2="14"></line><line x1="1" y1="9" x2="4" y2="9"></line><line x1="1" y1="14" x2="4" y2="14"></line></svg>
+                            </div>
+                            <h3 class="heading-md">AI-Driven</h3>
+                            <p>Integrating intelligence directly into legacy workflows.</p>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 12 12 17 22 12"></polyline><polyline points="2 17 12 22 22 17"></polyline></svg>
+                            </div>
+                            <h3 class="heading-md">Hardware + Software</h3>
+                            <p>Seamless integration from edge devices to cloud computing.</p>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+                            </div>
+                            <h3 class="heading-md">Data-Driven</h3>
+                            <p>Decisions backed by automated analytics and metrics.</p>
+                        </div>
+                    </div>
                 </div>
             </section>
         </div>
 
         <!-- 2. FOUNDER & ABOUT -->
         <div id="page-about" class="page-view">
-            <div class="page-header">
-                <h1 class="heading-xl">Founder & Leadership</h1>
-                <p class="section-desc">Engineering structural autonomy and intelligent solutions for the enterprise.</p>
-            </div>
-            <div class="container section-padding">
-                <div class="card" style="max-width: 700px; margin: 0 auto; text-align: left;">
-                    <span style="background: var(--c-blue); color: white; padding: 4px 10px; border-radius: 4px; font-size: 0.8rem; font-weight: 500;">Founder & CEO</span>
-                    <h2 style="color: var(--c-navy); margin-top: 0.75rem; font-size: 1.8rem;">RexusTech Founder</h2>
-                    <p style="color: var(--c-text-muted); font-size: 1.05rem; margin: 1rem 0;">
+            <div class="section-padding text-center">
+                <div class="container" style="max-width: 800px;">
+                    <span class="tag">Founder & CEO</span>
+                    <h1 class="heading-xl">Leadership</h1>
+                    <p class="section-desc" style="margin-bottom: 2rem;">
                         Welcome to RexusTech. As Founder and CEO, my vision is to bridge the gap between custom embedded hardware, edge IoT, and production-grade AI systems. We are building the infrastructure to eliminate manual enterprise friction through clean, scalable, and autonomous code.
                     </p>
-                    <button class="btn-dark" id="contact-ceo-btn">Contact CEO Directly</button>
+                    <button class="btn-primary" id="contact-ceo-btn">Contact CEO Directly</button>
                 </div>
             </div>
         </div>
 
         <!-- 3. PRODUCTS -->
         <div id="page-products" class="page-view">
-            <div class="page-header">
+            <div class="section-padding text-center">
                 <h1 class="heading-xl">Real Products</h1>
                 <p class="section-desc">Production-ready platforms engineered to solve critical operational bottlenecks.</p>
-            </div>
-            <div class="container section-padding grid-cards">
-                <div class="card" style="display: flex; flex-direction: column;">
-                    <h3>Rexus Engine</h3>
-                    <div style="flex-grow: 1; font-size: 0.95rem; color: var(--c-text-muted); margin-bottom: 1.5rem;">
-                        <p style="margin-bottom: 0.5rem;"><strong style="color: var(--c-navy);">What it does:</strong> Adapts and fine-tunes best-in-class foundation models securely for specific enterprise parameters.</p>
-                        <p style="margin-bottom: 0.5rem;"><strong style="color: var(--c-navy);">Who it's for:</strong> Organizations requiring private, locally-hosted LLMs and AI processing.</p>
-                        <p><strong style="color: var(--c-navy);">Key benefit:</strong> Verified zero data leaks with low-latency outputs.</p>
-                    </div>
-                    <button class="btn-outline" style="width: 100%; padding: 0.6rem;" onclick="window.location.href='mailto:rexusfounder@gmail.com?subject=Demo Request - Rexus Engine'">Demo / Learn More</button>
-                </div>
                 
-                <div class="card" style="display: flex; flex-direction: column;">
-                    <h3>NeuroVision Core</h3>
-                    <div style="flex-grow: 1; font-size: 0.95rem; color: var(--c-text-muted); margin-bottom: 1.5rem;">
-                        <p style="margin-bottom: 0.5rem;"><strong style="color: var(--c-navy);">What it does:</strong> Specialized deep-learning framework for real-time video parsing, object tracking, and defect recognition.</p>
-                        <p style="margin-bottom: 0.5rem;"><strong style="color: var(--c-navy);">Who it's for:</strong> Manufacturing floors and facilities relying on visual quality control.</p>
-                        <p><strong style="color: var(--c-navy);">Key benefit:</strong> Eliminates manual visual inspection failures and automates high-resolution data streams.</p>
+                <div class="container grid-layout text-left" style="margin-top: 4rem;">
+                    <div class="product-item">
+                        <h3 class="heading-lg" style="font-size: 1.5rem;">Rexus Engine</h3>
+                        <p><strong>What it does:</strong> Adapts and fine-tunes best-in-class foundation models securely for specific enterprise parameters.</p>
+                        <p><strong>Who it's for:</strong> Organizations requiring private, locally-hosted LLMs and AI processing.</p>
+                        <p style="margin-bottom: 1.5rem;"><strong>Key benefit:</strong> Verified zero data leaks with low-latency outputs.</p>
+                        <button class="btn-secondary" style="padding: 10px 20px; font-size: 0.9rem;" onclick="window.location.href='mailto:rexusfounder@gmail.com?subject=Demo Request - Rexus Engine'">Request Demo</button>
                     </div>
-                    <button class="btn-outline" style="width: 100%; padding: 0.6rem;" onclick="window.location.href='mailto:rexusfounder@gmail.com?subject=Demo Request - NeuroVision Core'">Demo / Learn More</button>
-                </div>
+                    
+                    <div class="product-item">
+                        <h3 class="heading-lg" style="font-size: 1.5rem;">NeuroVision Core</h3>
+                        <p><strong>What it does:</strong> Specialized deep-learning framework for real-time video parsing, object tracking, and defect recognition.</p>
+                        <p><strong>Who it's for:</strong> Manufacturing floors and facilities relying on visual quality control.</p>
+                        <p style="margin-bottom: 1.5rem;"><strong>Key benefit:</strong> Eliminates manual visual inspection failures.</p>
+                        <button class="btn-secondary" style="padding: 10px 20px; font-size: 0.9rem;" onclick="window.location.href='mailto:rexusfounder@gmail.com?subject=Demo Request - NeuroVision Core'">Request Demo</button>
+                    </div>
 
-                <div class="card" style="display: flex; flex-direction: column;">
-                    <h3>RexusFlow Edge</h3>
-                    <div style="flex-grow: 1; font-size: 0.95rem; color: var(--c-text-muted); margin-bottom: 1.5rem;">
-                        <p style="margin-bottom: 0.5rem;"><strong style="color: var(--c-navy);">What it does:</strong> An IoT bridge platform connecting localized hardware directly to secure cloud systems.</p>
-                        <p style="margin-bottom: 0.5rem;"><strong style="color: var(--c-navy);">Who it's for:</strong> Industrial plants and enterprises managing disconnected hardware sensor data.</p>
-                        <p><strong style="color: var(--c-navy);">Key benefit:</strong> Near-zero latency industrial monitoring and eliminated network bottlenecks.</p>
+                    <div class="product-item">
+                        <h3 class="heading-lg" style="font-size: 1.5rem;">RexusFlow Edge</h3>
+                        <p><strong>What it does:</strong> An IoT bridge platform connecting localized hardware directly to secure cloud systems.</p>
+                        <p><strong>Who it's for:</strong> Industrial plants and enterprises managing disconnected hardware sensor data.</p>
+                        <p style="margin-bottom: 1.5rem;"><strong>Key benefit:</strong> Near-zero latency industrial monitoring.</p>
+                        <button class="btn-secondary" style="padding: 10px 20px; font-size: 0.9rem;" onclick="window.location.href='mailto:rexusfounder@gmail.com?subject=Demo Request - RexusFlow Edge'">Request Demo</button>
                     </div>
-                    <button class="btn-outline" style="width: 100%; padding: 0.6rem;" onclick="window.location.href='mailto:rexusfounder@gmail.com?subject=Demo Request - RexusFlow Edge'">Demo / Learn More</button>
                 </div>
             </div>
         </div>
 
-        <!-- 4. SERVICES -->
-        <div id="page-services" class="page-view">
-            <div class="page-header">
-                <h1 class="heading-xl">Core Services</h1>
-                <p class="section-desc">Engineering intelligent, automated, and embedded software systems.</p>
-            </div>
-            <div class="container section-padding grid-cards">
-                <div class="card">
-                    <h3>Computer Vision</h3>
-                    <p style="color: var(--c-text-muted); margin-bottom: 1rem; font-size: 0.95rem;">Optical parsing, real-time video analytics, and spatial intelligence.</p>
-                </div>
-                <div class="card">
-                    <h3>AI & Data Analytics</h3>
-                    <p style="color: var(--c-text-muted); margin-bottom: 1rem; font-size: 0.95rem;">Predictive modeling and automated ETL data pipelines.</p>
-                </div>
-                <div class="card">
-                    <h3>Software Engineering</h3>
-                    <p style="color: var(--c-text-muted); margin-bottom: 1rem; font-size: 0.95rem;">High-performance cloud architectures, web apps, and secure APIs.</p>
-                </div>
-                <div class="card">
-                    <h3>IoT & Embedded Systems</h3>
-                    <p style="color: var(--c-text-muted); margin-bottom: 1rem; font-size: 0.95rem;">Custom firmware development and device-to-cloud synchronization.</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- 5. PROOF & R&D -->
+        <!-- 4. PROOF & R&D -->
         <div id="page-research" class="page-view">
-            <div class="page-header">
-                <h1 class="heading-xl">Proof & Development Status</h1>
+            <div class="section-padding text-center">
+                <h1 class="heading-xl">Proof & R&D</h1>
                 <p class="section-desc">Current development milestones, prototypes, and technical validation.</p>
-            </div>
-            <div class="container section-padding grid-cards">
-                <div class="card">
-                    <span style="background: var(--c-blue); color: white; padding: 4px 8px; border-radius: 4px; font-size: 0.8rem;">Milestone</span>
-                    <h3 style="margin-top: 1rem;">Edge AI Prototype Deployment</h3>
-                    <p style="color: var(--c-text-muted); font-size: 0.95rem;">Successfully benchmarked NeuroVision Core prototypes on local hardware, recording a 40% reduction in automated defect response times.</p>
-                </div>
-                <div class="card">
-                    <span style="background: var(--c-blue); color: white; padding: 4px 8px; border-radius: 4px; font-size: 0.8rem;">Architecture R&D</span>
-                    <h3 style="margin-top: 1rem;">Zero-Latency Data Liquidity</h3>
-                    <p style="color: var(--c-text-muted); font-size: 0.95rem;">Constructed internal pipelines connecting low-power IoT gateways securely to cloud LLM runtimes without exposing private endpoints.</p>
+                
+                <div class="container grid-layout text-left" style="margin-top: 4rem;">
+                    <div class="product-item">
+                        <span class="tag">Milestone</span>
+                        <h3 class="heading-lg" style="font-size: 1.5rem;">Edge AI Prototype Deployment</h3>
+                        <p>Successfully benchmarked NeuroVision Core prototypes on local hardware, recording a 40% reduction in automated defect response times.</p>
+                    </div>
+                    <div class="product-item">
+                        <span class="tag">Architecture</span>
+                        <h3 class="heading-lg" style="font-size: 1.5rem;">Zero-Latency Data Liquidity</h3>
+                        <p>Constructed internal pipelines connecting low-power IoT gateways securely to cloud LLM runtimes without exposing private endpoints.</p>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <!-- 6. CONTACT US -->
+        <!-- 5. CONTACT US -->
         <div id="page-contact" class="page-view">
-            <div class="page-header">
+            <div class="section-padding text-center">
                 <h1 class="heading-xl">Contact Us</h1>
-                <p class="section-desc">Ready to scale your infrastructure? Get in touch with our team directly.</p>
-            </div>
-            <div class="container section-padding" style="display: flex; justify-content: center;">
-                <div class="card" style="width: 100%; max-width: 600px;">
+                <p class="section-desc" style="margin-bottom: 4rem;">Ready to scale your infrastructure? Get in touch with our team directly.</p>
+                
+                <div class="form-container">
                     <input type="text" id="contact-name" placeholder="Full Name" class="form-input">
                     <input type="email" id="contact-email" placeholder="Work Email" class="form-input">
-                    <select id="contact-service" class="form-input">
-                        <option value="">Service Required</option>
+                    <select id="contact-service" class="form-input" style="color: var(--c-text-muted);">
+                        <option value="" disabled selected>Service Required</option>
                         <option value="Computer Vision">Computer Vision</option>
                         <option value="IoT / Embedded Systems">IoT / Embedded Systems</option>
                         <option value="Software Engineering">Software Engineering</option>
                     </select>
-                    <textarea id="contact-details" placeholder="Project Details" class="form-input" rows="4"></textarea>
+                    <textarea id="contact-details" placeholder="Project Details" class="form-input" rows="3" style="resize: none;"></textarea>
                     
-                    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; margin-bottom: 2rem;">
-                        <button class="btn-dark" id="contact-submit-btn" style="width: 100%;">Start a Project</button>
-                        <p style="color: var(--c-text-muted); font-size: 0.9rem; margin-top: 0.5rem;">Tell us what you're building. We'll get back to you with the next steps.</p>
-                    </div>
-
-                    <!-- Direct Contact Information with Icons -->
-                    <div style="border-top: 1px solid var(--c-border); padding-top: 1.5rem; text-align: center;">
-                        <p style="color: var(--c-text-muted); font-size: 0.95rem; margin-bottom: 0.5rem;">Or reach out directly:</p>
-                        <div class="social-links">
-                            <a href="mailto:rexusfounder@gmail.com" class="social-btn" title="Email rexusfounder@gmail.com">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-                                    <polyline points="22,6 12,13 2,6"></polyline>
-                                </svg>
-                            </a>
-                            <a href="https://www.linkedin.com/in/suganya-shenbagam-5b929b42b?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" rel="noopener noreferrer" class="social-btn" title="Connect on LinkedIn">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
-                                    <rect x="2" y="9" width="4" height="12"></rect>
-                                    <circle cx="4" cy="4" r="2"></circle>
-                                </svg>
-                            </a>
-                            <a href="https://www.facebook.com/share/1He82FvacN/" target="_blank" rel="noopener noreferrer" class="social-btn" title="Connect on Facebook">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
-                                </svg>
-                            </a>
-                        </div>
+                    <button class="btn-primary" id="contact-submit-btn" style="width: 100%; margin-top: 1rem;">Start a Project</button>
+                    
+                    <div class="social-links">
+                        <a href="mailto:rexusfounder@gmail.com" class="social-btn" title="Email Us">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                        </a>
+                        <a href="https://www.linkedin.com/in/suganya-shenbagam-5b929b42b?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" rel="noopener noreferrer" class="social-btn" title="LinkedIn">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                        </a>
+                        <a href="https://www.facebook.com/share/1He82FvacN/" target="_blank" rel="noopener noreferrer" class="social-btn" title="Facebook">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -364,33 +404,30 @@
     </main>
 
     <footer>
-        <p>Copyright © 2026 RexusTech .All rights reserved.</p>
+        <p>Copyright © 2026 RexusTech. All rights reserved.</p>
     </footer>
 
     <div class="overlay-ui" id="overlay-status">
         <button class="close-overlay" id="close-status">✕</button>
         <div class="status-panel">
-            <h2 style="margin-bottom: 0.5rem; font-size: 1.8rem; display: flex; align-items: center;">
-                Technical overview 
-            </h2>
-            <p style="color: var(--c-text-muted); margin-bottom: 2rem;">RexusTech startup infrastructure</p>
-            <div style="display: flex; flex-direction: column;">
-                <div class="status-item">
-                    <span style="font-weight: 500;">AI Inference Engine</span>
-                    <span class="status-indicator" style="color: #10B981;"><span class="dot dot-green"></span> Operational</span>
-                </div>
-                <div class="status-item">
-                    <span style="font-weight: 500;">IoT Edge Gateways</span>
-                    <span class="status-indicator" style="color: #10B981;"><span class="dot dot-green"></span> Operational</span>
-                </div>
-                <div class="status-item">
-                    <span style="font-weight: 500;">Data Analytics Cloud</span>
-                    <span class="status-indicator" style="color: #10B981;"><span class="dot dot-green"></span> Operational</span>
-                </div>
-                <div class="status-item">
-                    <span style="font-weight: 500;">Backend Services</span>
-                    <span class="status-indicator" style="color: #10B981;"><span class="dot dot-green"></span> Operational</span>
-                </div>
+            <h2 class="heading-lg" style="margin-bottom: 0.25rem;">System Status</h2>
+            <p style="color: var(--c-text-muted); margin-bottom: 2rem;">Infrastructure overview</p>
+            
+            <div class="status-item">
+                <span style="font-weight: 500;">AI Inference Engine</span>
+                <span class="status-indicator"><span class="dot dot-green"></span> Operational</span>
+            </div>
+            <div class="status-item">
+                <span style="font-weight: 500;">IoT Edge Gateways</span>
+                <span class="status-indicator"><span class="dot dot-green"></span> Operational</span>
+            </div>
+            <div class="status-item">
+                <span style="font-weight: 500;">Data Analytics Cloud</span>
+                <span class="status-indicator"><span class="dot dot-green"></span> Operational</span>
+            </div>
+            <div class="status-item" style="border-bottom: none;">
+                <span style="font-weight: 500;">Backend Services</span>
+                <span class="status-indicator"><span class="dot dot-green"></span> Operational</span>
             </div>
         </div>
     </div>
@@ -406,12 +443,9 @@
                     e.preventDefault();
                     const targetId = trigger.getAttribute('data-target');
                     
-                    // Hide all pages
                     pageViews.forEach(page => page.classList.remove('active'));
-                    // Show targeted page
                     document.getElementById(targetId).classList.add('active');
                     
-                    // Smooth Active Link Updates
                     document.querySelectorAll('.desktop-nav a').forEach(link => {
                         if (link.getAttribute('data-target') === targetId) {
                             link.classList.add('active-link');
@@ -429,13 +463,7 @@
                     });
 
                     mobileMenu.classList.remove('active');
-                    
-                    // Smooth scroll jump replacement
-                    window.scrollTo({
-                        top: 0,
-                        left: 0,
-                        behavior: 'smooth'
-                    });
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
                 });
             });
 
@@ -459,7 +487,7 @@
                     const details = document.getElementById('contact-details').value.trim();
 
                     if (!name || !email || !service) {
-                        alert("Please complete the required fields (Full Name, Work Email, Service Required).");
+                        alert("Please complete the required fields.");
                         return;
                     }
 
