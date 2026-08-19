@@ -9,15 +9,15 @@
     <style>
         :root {
             /* Minimalist Enterprise Palette */
-            --c-primary: #0F172A;     /* Slate 900 - Tech Dark */
-            --c-accent: #0066FF;      /* Pure Blue - Google/Microsoft style */
+            --c-primary: #0F172A;     /* Slate 900 */
+            --c-accent: #0066FF;      /* Pure Blue */
             --c-bg: #FFFFFF;          /* Pure White */
-            --c-bg-alt: #F8FAFC;      /* Slate 50 - Extremely subtle off-white */
-            --c-text-main: #334155;   /* Slate 700 - Soft body text */
-            --c-text-muted: #64748B;  /* Slate 500 - Secondary text */
-            --c-border: #E2E8F0;      /* Slate 200 - Very soft structural lines */
+            --c-bg-alt: #F8FAFC;      /* Slate 50 - Very subtle off-white for depth */
+            --c-text-main: #334155;   /* Slate 700 */
+            --c-text-muted: #64748B;  /* Slate 500 */
+            --c-border: #E2E8F0;      /* Slate 200 */
             
-            --font-main: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            --font-main: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             --container-width: 1200px;
         }
 
@@ -41,13 +41,13 @@
         
         /* Typography */
         h1, h2, h3, h4 { font-weight: 600; letter-spacing: -0.03em; color: var(--c-primary); line-height: 1.2; }
-        .heading-xl { font-size: clamp(2.5rem, 5vw, 4.5rem); margin-bottom: 1.5rem; font-weight: 700; }
+        .heading-xl { font-size: clamp(2.5rem, 5vw, 4.5rem); margin-bottom: 1.25rem; font-weight: 700; }
         .heading-lg { font-size: clamp(2rem, 3vw, 2.5rem); margin-bottom: 1rem; }
         .heading-md { font-size: 1.25rem; margin-bottom: 0.5rem; }
         .section-desc { color: var(--c-text-muted); font-size: 1.125rem; max-width: 700px; margin: 0 auto; }
         p { color: var(--c-text-main); }
         
-        /* Layouts */
+        /* Layouts & Spacing */
         .section-padding { padding: 6rem 1.5rem; }
         .section-alt { background-color: var(--c-bg-alt); }
         .text-center { text-align: center; }
@@ -55,49 +55,36 @@
         
         .grid-layout { 
             display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
-            gap: 4rem 3rem; 
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); 
+            gap: 2.5rem; 
             margin-top: 3.5rem; 
         }
 
-        /* Buttons (Flat & Modern) */
-        .btn-group { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-bottom: 2rem; }
+        /* Buttons & Forms */
         .btn-primary { 
-            background: var(--c-accent); 
-            color: white; 
-            padding: 14px 28px; 
-            border-radius: 6px; 
-            font-weight: 500; 
-            border: none; 
-            transition: all 0.2s ease; 
+            background: var(--c-accent); color: white; 
+            padding: 14px 28px; border-radius: 6px; 
+            font-weight: 500; border: none; transition: all 0.2s ease; 
         }
         .btn-primary:hover { background: #0052CC; transform: translateY(-1px); }
         
         .btn-secondary { 
-            background: var(--c-bg-alt); 
-            color: var(--c-primary); 
-            padding: 14px 28px; 
-            border-radius: 6px; 
-            font-weight: 500; 
-            border: none; 
-            transition: all 0.2s ease; 
+            background: var(--c-bg-alt); color: var(--c-primary); 
+            padding: 14px 28px; border-radius: 6px; 
+            font-weight: 500; border: none; transition: all 0.2s ease; 
         }
         .btn-secondary:hover { background: var(--c-border); }
 
         .icon-btn { width: 44px; height: 44px; border-radius: 50%; display: flex; align-items: center; justify-content: center; background: transparent; transition: background 0.2s; color: var(--c-primary); border: none; }
         .icon-btn:hover { background: var(--c-bg-alt); }
 
-        /* Clean White Header */
+        /* Header */
         header { 
-            position: fixed; top: 0; left: 0; width: 100%; 
-            padding: 1rem 2rem; 
+            position: fixed; top: 0; left: 0; width: 100%; padding: 1rem 2rem; 
             display: flex; justify-content: space-between; align-items: center; 
-            z-index: 100; 
-            background: rgba(255, 255, 255, 0.95); 
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid var(--c-border);
+            z-index: 100; background: rgba(255, 255, 255, 0.95); 
+            backdrop-filter: blur(10px); border-bottom: 1px solid var(--c-border);
         }
-        
         .brand-container { display: flex; align-items: center; gap: 0.75rem; }
         .brand-logo { height: 28px; width: auto; object-fit: contain; }
         .logo-text { font-size: 1.25rem; font-weight: 700; letter-spacing: -0.02em; }
@@ -108,11 +95,7 @@
 
         .header-actions { display: flex; gap: 0.25rem; }
         .menu-toggle { display: block; }
-
-        @media (min-width: 900px) {
-            .desktop-nav { display: flex; }
-            .menu-toggle { display: none; }
-        }
+        @media (min-width: 900px) { .desktop-nav { display: flex; } .menu-toggle { display: none; } }
 
         /* Mobile Menu */
         .mobile-menu { position: fixed; top: 0; left: -100%; width: 100%; height: 100vh; background: var(--c-bg); z-index: 1000; transition: left 0.4s cubic-bezier(0.16, 1, 0.3, 1); padding: 2rem; display: flex; flex-direction: column; }
@@ -122,54 +105,89 @@
         .menu-links a.active-link { color: var(--c-primary); }
         .menu-close { align-self: flex-end; background: none; border: none; font-size: 2rem; cursor: pointer; color: var(--c-primary); margin-bottom: 2rem; }
 
-        /* Page Views */
-        .page-view { display: none; padding-top: 70px; min-height: 85vh; animation: fadeIn 0.5s ease forwards; }
+        .page-view { display: none; padding-top: 70px; min-height: 85vh; animation: fadeIn 0.4s ease forwards; }
         .page-view.active { display: block; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
 
-        /* Hero Section */
-        .hero { display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 6rem 1.5rem 4rem 1.5rem; }
-        .hero-banner-container { width: 100%; max-width: 1000px; margin-bottom: 3rem; border-radius: 12px; overflow: hidden; background: var(--c-bg-alt); aspect-ratio: 4 / 1; }
-        .hero-banner { width: 100%; height: 100%; object-fit: cover; display: block; }
+        /* HERO SECTION */
+        .hero { 
+            position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; 
+            text-align: center; padding: 11rem 1.5rem 8rem 1.5rem; 
+            background-color: var(--c-primary); color: white; overflow: hidden; 
+        }
+        .hero-bg { 
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%; 
+            object-fit: cover; opacity: 0.25; z-index: 0; mix-blend-mode: luminosity; 
+        }
+        .hero-content { position: relative; z-index: 1; max-width: 900px; width: 100%; }
+        .hero .heading-xl { color: white; }
+        .hero .section-desc { color: #CBD5E1; margin-bottom: 3rem; }
 
-        /* Centered Borderless Items (Replacing Cards) */
+        /* Early Access Lead Capture */
+        .early-access-form {
+            display: flex; gap: 0.5rem; max-width: 500px; margin: 0 auto;
+            background: rgba(255,255,255,0.1); padding: 0.5rem; border-radius: 8px;
+            backdrop-filter: blur(8px); border: 1px solid rgba(255,255,255,0.2);
+        }
+        @media (max-width: 600px) {
+            .early-access-form { flex-direction: column; background: transparent; border: none; padding: 0; }
+        }
+        .early-access-input {
+            flex: 1; background: transparent; border: none; padding: 0 1rem;
+            color: white; font-family: var(--font-main); outline: none; font-size: 1rem;
+        }
+        @media (max-width: 600px) {
+            .early-access-input { background: rgba(255,255,255,0.1); padding: 14px 1rem; border-radius: 6px; margin-bottom: 0.5rem; border: 1px solid rgba(255,255,255,0.2); }
+        }
+        .early-access-input::placeholder { color: rgba(255,255,255,0.6); }
+
+        /* Tech Stack / Proof Ribbon */
+        .proof-ribbon {
+            background: var(--c-bg-alt); padding: 2.5rem 1.5rem;
+            border-bottom: 1px solid var(--c-border); text-align: center;
+        }
+        .proof-label { color: var(--c-text-muted); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 600; margin-bottom: 1.5rem; }
+        .tech-stack-grid {
+            display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 3rem; opacity: 0.6; filter: grayscale(100%);
+        }
+        .tech-logo { font-size: 1.25rem; font-weight: 700; color: var(--c-primary); letter-spacing: -0.02em; display: flex; align-items: center; gap: 0.5rem; }
+
+        /* Centered Feature & Service Cards */
         .feature-item { display: flex; flex-direction: column; align-items: center; text-align: center; }
         .feature-icon { margin-bottom: 1.25rem; color: var(--c-accent); display: flex; align-items: center; justify-content: center; }
         
-        .product-item { text-align: left; padding: 1rem 0; }
+        .service-card {
+            background: var(--c-bg); padding: 2.5rem 2rem; border-radius: 12px;
+            border: 1px solid var(--c-border); box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02);
+            transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+            display: flex; flex-direction: column; align-items: center; text-align: center;
+        }
+        .service-card:hover { transform: translateY(-4px); box-shadow: 0 12px 20px -3px rgba(0, 0, 0, 0.05); border-color: #CBD5E1; }
+        .service-card h3 { margin-bottom: 0.75rem; color: var(--c-primary); }
+        .service-card p { font-size: 0.95rem; line-height: 1.5; color: var(--c-text-muted); }
+
+        .product-item { text-align: left; padding: 1.5rem; border: 1px solid var(--c-border); border-radius: 12px; transition: border-color 0.2s ease; }
+        .product-item:hover { border-color: var(--c-accent); }
         .product-item h3 { margin-bottom: 1rem; color: var(--c-primary); }
         .product-item p { margin-bottom: 0.75rem; font-size: 0.95rem; }
         
-        .tag { background: var(--c-bg-alt); color: var(--c-accent); padding: 4px 12px; border-radius: 20px; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 1rem; display: inline-block; }
+        .tag { background: var(--c-bg-alt); color: var(--c-accent); padding: 4px 12px; border-radius: 20px; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 1rem; display: inline-block; border: 1px solid var(--c-border); }
 
-        /* Forms - Google Material Line Style */
+        /* Forms */
         .form-container { width: 100%; max-width: 600px; margin: 0 auto; text-align: left; }
-        .form-input { 
-            width: 100%; 
-            padding: 16px 0; 
-            border: none; 
-            border-bottom: 1px solid var(--c-border); 
-            background: transparent; 
-            margin-bottom: 1.5rem; 
-            font-size: 1rem; 
-            color: var(--c-primary); 
-            font-family: var(--font-main);
-            transition: border-color 0.3s; 
-            outline: none;
-        }
+        .form-input { width: 100%; padding: 16px 0; border: none; border-bottom: 1px solid var(--c-border); background: transparent; margin-bottom: 1.5rem; font-size: 1rem; color: var(--c-primary); font-family: var(--font-main); transition: border-color 0.3s; outline: none; }
         .form-input::placeholder { color: var(--c-text-muted); }
         .form-input:focus { border-bottom-color: var(--c-accent); }
 
-        /* Social Icons */
+        /* Social */
         .social-links { display: flex; gap: 1.5rem; justify-content: center; margin-top: 2rem; padding-top: 2rem; }
         .social-btn { color: var(--c-text-muted); transition: color 0.2s ease; }
         .social-btn:hover { color: var(--c-accent); }
 
-        /* Modals */
+        /* Overlay */
         .overlay-ui { position: fixed; top: 0; left: 0; width: 100%; height: 100vh; background: rgba(15, 23, 42, 0.8); backdrop-filter: blur(5px); z-index: 2000; display: none; align-items: center; justify-content: center; color: var(--c-primary); padding: 1.5rem; }
         .overlay-ui.active { display: flex; animation: fadeIn 0.3s ease; }
         .close-overlay { position: absolute; top: 2rem; right: 2rem; background: none; border: none; color: white; font-size: 2rem; cursor: pointer; }
-        
         .status-panel { background: white; width: 100%; max-width: 480px; padding: 3rem; border-radius: 12px; text-align: left; }
         .status-item { display: flex; justify-content: space-between; align-items: center; padding: 1.25rem 0; border-bottom: 1px solid var(--c-border); }
         .status-item:last-child { border-bottom: none; }
@@ -220,40 +238,76 @@
     <main>
         <!-- 1. HOME -->
         <div id="page-home" class="page-view active">
-            <section class="hero container">
-                <div class="hero-banner-container">
-                    <img src="banner.png" alt="RexusTech Enterprise Banner" class="hero-banner" onerror="this.style.display='none'">
-                </div>
-                
-                <h1 class="heading-xl">Build. Automate. Innovate</h1>
-                <p class="section-desc" style="margin-bottom: 2.5rem;">AI, Computer Vision, IoT & Software solutions engineered for real-world enterprise infrastructure.</p>
-                
-                <div class="btn-group">
-                    <button class="btn-primary" onclick="document.querySelector('[data-target=\'page-products\']').click()">Explore Solutions</button>
-                    <button class="btn-secondary" onclick="document.querySelector('[data-target=\'page-contact\']').click()">Work With Us</button>
+            
+            <!-- Hero Section -->
+            <section class="hero">
+                <img src="banner.png" alt="" class="hero-bg" onerror="this.style.display='none'">
+                <div class="hero-content">
+                    <h1 class="heading-xl">Build. Automate. Innovate.</h1>
+                    <p class="section-desc">AI, Computer Vision, IoT & Software solutions engineered for real-world enterprise infrastructure.</p>
+                    
+                    <div class="early-access-form">
+                        <input type="email" id="hero-email" placeholder="Enter your work email" class="early-access-input">
+                        <button class="btn-primary" id="btn-early-access">Request Early Access</button>
+                    </div>
                 </div>
             </section>
 
-            <!-- Services Section incorporated into Home -->
+            <!-- Tech Stack Ribbon -->
+            <section class="proof-ribbon">
+                <div class="proof-label">Infrastructure Powered By</div>
+                <div class="tech-stack-grid container">
+                    <div class="tech-logo">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 12 12 17 22 12"></polyline><polyline points="2 17 12 22 22 17"></polyline></svg>
+                        Next.js
+                    </div>
+                    <div class="tech-logo">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+                        TypeScript
+                    </div>
+                    <div class="tech-logo">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="16"></line><line x1="8" y1="12" x2="16" y2="12"></line></svg>
+                        Supabase
+                    </div>
+                    <div class="tech-logo">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path></svg>
+                        Tailwind CSS
+                    </div>
+                </div>
+            </section>
+
+            <!-- Services Section -->
             <section class="section-padding section-alt text-center">
                 <div class="container">
                     <h2 class="heading-lg">Services We Provide</h2>
                     <p class="section-desc">Engineering intelligent, automated, and embedded systems.</p>
                     
                     <div class="grid-layout">
-                        <div class="feature-item">
+                        <div class="service-card">
+                            <div class="feature-icon">
+                                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+                            </div>
                             <h3 class="heading-md">Computer Vision</h3>
                             <p>Optical parsing, real-time video analytics, and spatial intelligence.</p>
                         </div>
-                        <div class="feature-item">
-                            <h3 class="heading-md">AI & Data Analytics</h3>
+                        <div class="service-card">
+                            <div class="feature-icon">
+                                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+                            </div>
+                            <h3 class="heading-md">AI & Analytics</h3>
                             <p>Predictive modeling and automated ETL data pipelines.</p>
                         </div>
-                        <div class="feature-item">
+                        <div class="service-card">
+                            <div class="feature-icon">
+                                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+                            </div>
                             <h3 class="heading-md">Software Engineering</h3>
                             <p>High-performance cloud architectures, web apps, and secure APIs.</p>
                         </div>
-                        <div class="feature-item">
+                        <div class="service-card">
+                            <div class="feature-icon">
+                                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect><rect x="9" y="9" width="6" height="6"></rect><line x1="9" y1="1" x2="9" y2="4"></line><line x1="15" y1="1" x2="15" y2="4"></line><line x1="9" y1="20" x2="9" y2="23"></line><line x1="15" y1="20" x2="15" y2="23"></line><line x1="20" y1="9" x2="23" y2="9"></line><line x1="20" y1="14" x2="23" y2="14"></line><line x1="1" y1="9" x2="4" y2="9"></line><line x1="1" y1="14" x2="4" y2="14"></line></svg>
+                            </div>
                             <h3 class="heading-md">IoT & Embedded</h3>
                             <p>Custom firmware development and device-to-cloud synchronization.</p>
                         </div>
@@ -275,21 +329,21 @@
                         </div>
                         <div class="feature-item">
                             <div class="feature-icon">
-                                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect><rect x="9" y="9" width="6" height="6"></rect><line x1="9" y1="1" x2="9" y2="4"></line><line x1="15" y1="1" x2="15" y2="4"></line><line x1="9" y1="20" x2="9" y2="23"></line><line x1="15" y1="20" x2="15" y2="23"></line><line x1="20" y1="9" x2="23" y2="9"></line><line x1="20" y1="14" x2="23" y2="14"></line><line x1="1" y1="9" x2="4" y2="9"></line><line x1="1" y1="14" x2="4" y2="14"></line></svg>
+                                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 12 12 17 22 12"></polyline><polyline points="2 17 12 22 22 17"></polyline></svg>
                             </div>
                             <h3 class="heading-md">AI-Driven</h3>
                             <p>Integrating intelligence directly into legacy workflows.</p>
                         </div>
                         <div class="feature-item">
                             <div class="feature-icon">
-                                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 12 12 17 22 12"></polyline><polyline points="2 17 12 22 22 17"></polyline></svg>
+                                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
                             </div>
                             <h3 class="heading-md">Hardware + Software</h3>
                             <p>Seamless integration from edge devices to cloud computing.</p>
                         </div>
                         <div class="feature-item">
                             <div class="feature-icon">
-                                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+                                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.21 15.89A10 10 0 1 1 8 2.83"></path><path d="M22 12A10 10 0 0 0 12 2v10z"></path></svg>
                             </div>
                             <h3 class="heading-md">Data-Driven</h3>
                             <p>Decisions backed by automated analytics and metrics.</p>
@@ -304,9 +358,9 @@
             <div class="section-padding text-center">
                 <div class="container" style="max-width: 800px;">
                     <span class="tag">Founder & CEO</span>
-                    <h1 class="heading-xl">Leadership</h1>
-                    <p class="section-desc" style="margin-bottom: 2rem;">
-                        Welcome to RexusTech. As Founder and CEO, my vision is to bridge the gap between custom embedded hardware, edge IoT, and production-grade AI systems. We are building the infrastructure to eliminate manual enterprise friction through clean, scalable, and autonomous code.
+                    <h1 class="heading-xl">The Origin</h1>
+                    <p class="section-desc" style="margin-bottom: 2rem; color: var(--c-primary);">
+                        Enterprise infrastructure is fundamentally broken—bogged down by manual friction and disconnected legacy systems. I founded RexusTech to bridge the gap between custom embedded hardware, edge IoT, and production-grade AI. We aren't just building software; we are building the autonomous infrastructure of tomorrow, eliminating bottlenecks through clean, scalable, and intelligent code.
                     </p>
                     <button class="btn-primary" id="contact-ceo-btn">Contact CEO Directly</button>
                 </div>
@@ -380,7 +434,6 @@
                     <select id="contact-service" class="form-input" style="color: var(--c-text-muted);">
                         <option value="" disabled selected>Service Required</option>
                         <option value="Computer Vision">Computer Vision</option>
-                        <option value="AI solutions">AI Solutions</option>
                         <option value="IoT / Embedded Systems">IoT / Embedded Systems</option>
                         <option value="Software Engineering">Software Engineering</option>
                     </select>
@@ -411,8 +464,8 @@
     <div class="overlay-ui" id="overlay-status">
         <button class="close-overlay" id="close-status">✕</button>
         <div class="status-panel">
-            <h2 class="heading-lg" style="margin-bottom: 0.25rem;"tTechnologies</h2>
-            <p style="color: var(--c-text-muted); margin-bottom: 2rem;">overview</p>
+            <h2 class="heading-lg" style="margin-bottom: 0.25rem;">System Status</h2>
+            <p style="color: var(--c-text-muted); margin-bottom: 2rem;">Infrastructure overview</p>
             
             <div class="status-item">
                 <span style="font-weight: 500;">AI Inference Engine</span>
@@ -479,6 +532,21 @@
             btnStatus.addEventListener('click', () => overlayStatus.classList.add('active'));
             closeStatus.addEventListener('click', () => overlayStatus.classList.remove('active'));
 
+            // Lead Capture Button
+            const btnEarlyAccess = document.getElementById('btn-early-access');
+            if (btnEarlyAccess) {
+                btnEarlyAccess.addEventListener('click', () => {
+                    const email = document.getElementById('hero-email').value.trim();
+                    if (!email) {
+                        alert("Please enter a valid work email to request access.");
+                        return;
+                    }
+                    const subject = encodeURIComponent("Early Access Request");
+                    const body = encodeURIComponent(`I am interested in early access for my team. My email is: ${email}`);
+                    window.location.href = `mailto:rexusfounder@gmail.com?subject=${subject}&body=${body}`;
+                });
+            }
+
             const contactSubmitBtn = document.getElementById('contact-submit-btn');
             if (contactSubmitBtn) {
                 contactSubmitBtn.addEventListener('click', () => {
@@ -503,7 +571,7 @@
                 contactCeoBtn.addEventListener('click', () => {
                     const subject = encodeURIComponent("Direct CEO Inquiry - RexusTech");
                     const body = encodeURIComponent("Hello CEO,\n\nI would like to connect with you regarding:");
-                    window.location.href = `mailto:suganyas2382006@gmail.com?subject=${subject}&body=${body}`;
+                    window.location.href = `mailto:rexusfounder@gmail.com?subject=${subject}&body=${body}`;
                 });
             }
         });
