@@ -12,7 +12,7 @@
             --c-primary: #0F172A;     /* Slate 900 */
             --c-accent: #0066FF;      /* Pure Blue */
             --c-bg: #FFFFFF;          /* Pure White */
-            --c-bg-alt: #F8FAFC;      /* Slate 50 - Very subtle off-white for depth */
+            --c-bg-alt: #F8FAFC;      /* Slate 50 */
             --c-text-main: #334155;   /* Slate 700 */
             --c-text-muted: #64748B;  /* Slate 500 */
             --c-border: #E2E8F0;      /* Slate 200 */
@@ -24,15 +24,10 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
         body { 
-            font-family: var(--font-main); 
-            color: var(--c-primary); 
-            background: var(--c-bg); 
-            line-height: 1.6; 
-            overflow-x: hidden; 
-            display: flex; 
-            flex-direction: column; 
-            min-height: 100vh; 
-            -webkit-font-smoothing: antialiased;
+            font-family: var(--font-main); color: var(--c-primary); 
+            background: var(--c-bg); line-height: 1.5; 
+            overflow-x: hidden; display: flex; flex-direction: column; 
+            min-height: 100vh; -webkit-font-smoothing: antialiased;
         }
         
         main { flex: 1; }
@@ -41,23 +36,22 @@
         
         /* Typography */
         h1, h2, h3, h4 { font-weight: 600; letter-spacing: -0.03em; color: var(--c-primary); line-height: 1.2; }
-        .heading-xl { font-size: clamp(2.5rem, 5vw, 4.5rem); margin-bottom: 1.25rem; font-weight: 700; }
-        .heading-lg { font-size: clamp(2rem, 3vw, 2.5rem); margin-bottom: 1rem; }
-        .heading-md { font-size: 1.25rem; margin-bottom: 0.5rem; }
-        .section-desc { color: var(--c-text-muted); font-size: 1.125rem; max-width: 700px; margin: 0 auto; }
+        .heading-xl { font-size: 3.5rem; margin-bottom: 1.25rem; font-weight: 700; }
+        .heading-lg { font-size: 2.5rem; margin-bottom: 0.75rem; }
+        .heading-md { font-size: 1.15rem; margin-bottom: 0.4rem; }
+        .section-desc { color: var(--c-text-muted); font-size: 1.05rem; max-width: 600px; margin: 0 auto; }
         p { color: var(--c-text-main); }
         
         /* Layouts & Spacing */
-        .section-padding { padding: 6rem 1.5rem; }
+        .section-padding { padding: 5rem 1.5rem; }
         .section-alt { background-color: var(--c-bg-alt); }
         .text-center { text-align: center; }
         .container { max-width: var(--container-width); margin: 0 auto; }
         
+        /* Standard Grid for Products/Research */
         .grid-layout { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); 
-            gap: 2.5rem; 
-            margin-top: 3.5rem; 
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+            gap: 1.5rem; margin-top: 2.5rem; 
         }
 
         /* Buttons & Forms */
@@ -74,6 +68,14 @@
             font-weight: 500; border: none; transition: all 0.2s ease; 
         }
         .btn-secondary:hover { background: var(--c-border); }
+
+        .btn-dark-outline {
+            background: rgba(255, 255, 255, 0.05); color: white;
+            padding: 14px 28px; border-radius: 6px; font-weight: 500;
+            border: 1px solid rgba(255, 255, 255, 0.2); backdrop-filter: blur(4px);
+            transition: all 0.2s ease;
+        }
+        .btn-dark-outline:hover { background: rgba(255, 255, 255, 0.15); }
 
         .icon-btn { width: 44px; height: 44px; border-radius: 50%; display: flex; align-items: center; justify-content: center; background: transparent; transition: background 0.2s; color: var(--c-primary); border: none; }
         .icon-btn:hover { background: var(--c-bg-alt); }
@@ -123,49 +125,51 @@
         .hero .heading-xl { color: white; }
         .hero .section-desc { color: #CBD5E1; margin-bottom: 3rem; }
 
-        /* Early Access Lead Capture */
+        /* Early Access Form */
         .early-access-form {
             display: flex; gap: 0.5rem; max-width: 500px; margin: 0 auto;
             background: rgba(255,255,255,0.1); padding: 0.5rem; border-radius: 8px;
             backdrop-filter: blur(8px); border: 1px solid rgba(255,255,255,0.2);
         }
-        @media (max-width: 600px) {
-            .early-access-form { flex-direction: column; background: transparent; border: none; padding: 0; }
-        }
         .early-access-input {
             flex: 1; background: transparent; border: none; padding: 0 1rem;
             color: white; font-family: var(--font-main); outline: none; font-size: 1rem;
-        }
-        @media (max-width: 600px) {
-            .early-access-input { background: rgba(255,255,255,0.1); padding: 14px 1rem; border-radius: 6px; margin-bottom: 0.5rem; border: 1px solid rgba(255,255,255,0.2); }
         }
         .early-access-input::placeholder { color: rgba(255,255,255,0.6); }
 
         /* Tech Stack / Proof Ribbon */
         .proof-ribbon {
-            background: var(--c-bg-alt); padding: 2.5rem 1.5rem;
+            background: var(--c-bg-alt); padding: 2rem 1.5rem;
             border-bottom: 1px solid var(--c-border); text-align: center;
         }
-        .proof-label { color: var(--c-text-muted); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 600; margin-bottom: 1.5rem; }
+        .proof-label { color: var(--c-text-muted); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 600; margin-bottom: 1rem; }
         .tech-stack-grid {
             display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 3rem; opacity: 0.6; filter: grayscale(100%);
         }
-        .tech-logo { font-size: 1.25rem; font-weight: 700; color: var(--c-primary); letter-spacing: -0.02em; display: flex; align-items: center; gap: 0.5rem; }
+        .tech-logo { font-size: 1.2rem; font-weight: 700; color: var(--c-primary); letter-spacing: -0.02em; display: flex; align-items: center; gap: 0.5rem; }
 
-        /* Centered Feature & Service Cards */
-        .feature-item { display: flex; flex-direction: column; align-items: center; text-align: center; }
-        .feature-icon { margin-bottom: 1.25rem; color: var(--c-accent); display: flex; align-items: center; justify-content: center; }
-        
-        .service-card {
-            background: var(--c-bg); padding: 2.5rem 2rem; border-radius: 12px;
-            border: 1px solid var(--c-border); box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02);
-            transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
-            display: flex; flex-direction: column; align-items: center; text-align: center;
+        /* AUTO-SIZED PILL LAYOUT (For Services & Features) */
+        .pill-container {
+            display: flex; flex-wrap: wrap; justify-content: center; align-items: center;
+            gap: 1rem; margin-top: 2rem; max-width: 1000px; margin-left: auto; margin-right: auto;
         }
-        .service-card:hover { transform: translateY(-4px); box-shadow: 0 12px 20px -3px rgba(0, 0, 0, 0.05); border-color: #CBD5E1; }
-        .service-card h3 { margin-bottom: 0.75rem; color: var(--c-primary); }
-        .service-card p { font-size: 0.95rem; line-height: 1.5; color: var(--c-text-muted); }
+        .pill-card {
+            display: inline-flex; align-items: center; justify-content: center;
+            gap: 0.75rem; padding: 0.75rem 1.5rem;
+            background: var(--c-bg); border: 1px solid var(--c-border); border-radius: 50px;
+            transition: all 0.2s ease; white-space: nowrap; box-shadow: 0 2px 4px rgba(0,0,0,0.01);
+        }
+        .pill-card:hover {
+            transform: translateY(-2px); border-color: var(--c-accent); box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        .pill-card .feature-icon {
+            display: flex; align-items: center; justify-content: center; color: var(--c-accent); margin: 0;
+        }
+        .pill-card h3 {
+            margin: 0; color: var(--c-primary); font-size: 1.05rem; font-weight: 500;
+        }
 
+        /* Products & R&D Item Styling */
         .product-item { text-align: left; padding: 1.5rem; border: 1px solid var(--c-border); border-radius: 12px; transition: border-color 0.2s ease; }
         .product-item:hover { border-color: var(--c-accent); }
         .product-item h3 { margin-bottom: 1rem; color: var(--c-primary); }
@@ -196,6 +200,31 @@
         .dot-green { background-color: #10B981; }
 
         footer { padding: 3rem 1.5rem; text-align: center; color: var(--c-text-muted); font-size: 0.85rem; }
+
+        /* --- EXTREME MOBILE COMPACTION --- */
+        @media (max-width: 768px) {
+            .hero { padding: 7rem 1.25rem 3.5rem 1.25rem; }
+            .heading-xl { font-size: 2.2rem; margin-bottom: 1rem; }
+            .heading-lg { font-size: 1.75rem; margin-bottom: 0.5rem; } 
+            
+            .section-padding { padding: 3rem 1.25rem; }
+            .section-desc { font-size: 0.95rem; margin-bottom: 1rem; }
+            
+            /* Responsive auto-sized pills for mobile */
+            .pill-container { gap: 0.75rem; margin-top: 1.5rem; }
+            .pill-card { padding: 0.6rem 1.2rem; }
+            .pill-card h3 { font-size: 0.95rem; }
+            
+            .grid-layout { gap: 1rem; margin-top: 1.5rem; }
+            
+            .proof-ribbon { padding: 1.5rem 1.25rem; }
+            .tech-stack-grid { gap: 1.25rem; }
+            .tech-logo { font-size: 1rem; }
+            
+            .early-access-form { flex-direction: column; background: transparent; border: none; padding: 0; }
+            .early-access-input { background: rgba(255,255,255,0.1); padding: 12px 1rem; border-radius: 6px; margin-bottom: 0.5rem; border: 1px solid rgba(255,255,255,0.2); }
+            .btn-primary, .btn-dark-outline { width: 100%; padding: 12px; }
+        }
     </style>
 </head>
 <body>
@@ -258,19 +287,19 @@
                 <div class="proof-label">Infrastructure Powered By</div>
                 <div class="tech-stack-grid container">
                     <div class="tech-logo">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 12 12 17 22 12"></polyline><polyline points="2 17 12 22 22 17"></polyline></svg>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 12 12 17 22 12"></polyline><polyline points="2 17 12 22 22 17"></polyline></svg>
                         Next.js
                     </div>
                     <div class="tech-logo">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
                         TypeScript
                     </div>
                     <div class="tech-logo">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="16"></line><line x1="8" y1="12" x2="16" y2="12"></line></svg>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="16"></line><line x1="8" y1="12" x2="16" y2="12"></line></svg>
                         Supabase
                     </div>
                     <div class="tech-logo">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path></svg>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path></svg>
                         Tailwind CSS
                     </div>
                 </div>
@@ -280,36 +309,31 @@
             <section class="section-padding section-alt text-center">
                 <div class="container">
                     <h2 class="heading-lg">Services We Provide</h2>
-                    <p class="section-desc">Engineering intelligent, automated, and embedded systems.</p>
                     
-                    <div class="grid-layout">
-                        <div class="service-card">
+                    <div class="pill-container">
+                        <div class="pill-card">
                             <div class="feature-icon">
-                                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
                             </div>
-                            <h3 class="heading-md">Computer Vision</h3>
-                            <p>Optical parsing, real-time video analytics, and spatial intelligence.</p>
+                            <h3>Computer Vision</h3>
                         </div>
-                        <div class="service-card">
+                        <div class="pill-card">
                             <div class="feature-icon">
-                                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
                             </div>
-                            <h3 class="heading-md">AI & Analytics</h3>
-                            <p>Predictive modeling and automated ETL data pipelines.</p>
+                            <h3>AI & Analytics</h3>
                         </div>
-                        <div class="service-card">
+                        <div class="pill-card">
                             <div class="feature-icon">
-                                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
                             </div>
-                            <h3 class="heading-md">Software Engineering</h3>
-                            <p>High-performance cloud architectures, web apps, and secure APIs.</p>
+                            <h3>Software Engineering</h3>
                         </div>
-                        <div class="service-card">
+                        <div class="pill-card">
                             <div class="feature-icon">
-                                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect><rect x="9" y="9" width="6" height="6"></rect><line x1="9" y1="1" x2="9" y2="4"></line><line x1="15" y1="1" x2="15" y2="4"></line><line x1="9" y1="20" x2="9" y2="23"></line><line x1="15" y1="20" x2="15" y2="23"></line><line x1="20" y1="9" x2="23" y2="9"></line><line x1="20" y1="14" x2="23" y2="14"></line><line x1="1" y1="9" x2="4" y2="9"></line><line x1="1" y1="14" x2="4" y2="14"></line></svg>
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect><rect x="9" y="9" width="6" height="6"></rect><line x1="9" y1="1" x2="9" y2="4"></line><line x1="15" y1="1" x2="15" y2="4"></line><line x1="9" y1="20" x2="9" y2="23"></line><line x1="15" y1="20" x2="15" y2="23"></line><line x1="20" y1="9" x2="23" y2="9"></line><line x1="20" y1="14" x2="23" y2="14"></line><line x1="1" y1="9" x2="4" y2="9"></line><line x1="1" y1="14" x2="4" y2="14"></line></svg>
                             </div>
-                            <h3 class="heading-md">IoT & Embedded</h3>
-                            <p>Custom firmware development and device-to-cloud synchronization.</p>
+                            <h3>IoT & Embedded</h3>
                         </div>
                     </div>
                 </div>
@@ -319,34 +343,31 @@
             <section class="section-padding text-center">
                 <div class="container">
                     <h2 class="heading-lg">Why RexusTech?</h2>
-                    <div class="grid-layout">
-                        <div class="feature-item">
+                    
+                    <div class="pill-container">
+                        <div class="pill-card">
                             <div class="feature-icon">
-                                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
                             </div>
-                            <h3 class="heading-md">Practical Engineering</h3>
-                            <p>Solutions designed for deployment, not just theory.</p>
+                            <h3>Practical Engineering</h3>
                         </div>
-                        <div class="feature-item">
+                        <div class="pill-card">
                             <div class="feature-icon">
-                                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 12 12 17 22 12"></polyline><polyline points="2 17 12 22 22 17"></polyline></svg>
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 12 12 17 22 12"></polyline><polyline points="2 17 12 22 22 17"></polyline></svg>
                             </div>
-                            <h3 class="heading-md">AI-Driven</h3>
-                            <p>Integrating intelligence directly into legacy workflows.</p>
+                            <h3>AI-Driven</h3>
                         </div>
-                        <div class="feature-item">
+                        <div class="pill-card">
                             <div class="feature-icon">
-                                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
                             </div>
-                            <h3 class="heading-md">Hardware + Software</h3>
-                            <p>Seamless integration from edge devices to cloud computing.</p>
+                            <h3>Hardware + Software</h3>
                         </div>
-                        <div class="feature-item">
+                        <div class="pill-card">
                             <div class="feature-icon">
-                                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.21 15.89A10 10 0 1 1 8 2.83"></path><path d="M22 12A10 10 0 0 0 12 2v10z"></path></svg>
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.21 15.89A10 10 0 1 1 8 2.83"></path><path d="M22 12A10 10 0 0 0 12 2v10z"></path></svg>
                             </div>
-                            <h3 class="heading-md">Data-Driven</h3>
-                            <p>Decisions backed by automated analytics and metrics.</p>
+                            <h3>Data-Driven</h3>
                         </div>
                     </div>
                 </div>
@@ -373,7 +394,7 @@
                 <h1 class="heading-xl">Real Products</h1>
                 <p class="section-desc">Production-ready platforms engineered to solve critical operational bottlenecks.</p>
                 
-                <div class="container grid-layout text-left" style="margin-top: 4rem;">
+                <div class="container grid-layout text-left" style="margin-top: 2rem;">
                     <div class="product-item">
                         <h3 class="heading-lg" style="font-size: 1.5rem;">Rexus Engine</h3>
                         <p><strong>What it does:</strong> Adapts and fine-tunes best-in-class foundation models securely for specific enterprise parameters.</p>
@@ -407,7 +428,7 @@
                 <h1 class="heading-xl">Proof & R&D</h1>
                 <p class="section-desc">Current development milestones, prototypes, and technical validation.</p>
                 
-                <div class="container grid-layout text-left" style="margin-top: 4rem;">
+                <div class="container grid-layout text-left" style="margin-top: 2rem;">
                     <div class="product-item">
                         <span class="tag">Milestone</span>
                         <h3 class="heading-lg" style="font-size: 1.5rem;">Edge AI Prototype Deployment</h3>
@@ -426,7 +447,7 @@
         <div id="page-contact" class="page-view">
             <div class="section-padding text-center">
                 <h1 class="heading-xl">Contact Us</h1>
-                <p class="section-desc" style="margin-bottom: 4rem;">Ready to scale your infrastructure? Get in touch with our team directly.</p>
+                <p class="section-desc" style="margin-bottom: 2rem;">Ready to scale your infrastructure? Get in touch with our team directly.</p>
                 
                 <div class="form-container">
                     <input type="text" id="contact-name" placeholder="Full Name" class="form-input">
