@@ -70,8 +70,8 @@
         .page-view.active { display: block; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
-        /* Hero */
-        .hero { position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; color: var(--c-navy); background: var(--c-bg-light); padding: 4rem 1.5rem 4rem 1.5rem; }
+        /* Hero - Changed background to white for consistency */
+        .hero { position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; color: var(--c-navy); background: var(--c-bg-white); padding: 4rem 1.5rem 4rem 1.5rem; }
         
         .hero-banner-container { width: 100%; max-width: 900px; margin-bottom: 1.5rem; border-radius: 8px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.08); background: var(--c-border); aspect-ratio: 4 / 1; }
         .hero-banner { width: 100%; height: 100%; object-fit: cover; display: block; }
@@ -150,7 +150,7 @@
         <div id="page-home" class="page-view active">
             <section class="hero">
                 <div class="hero-banner-container">
-                    <img src="banner.png" alt="RexusTech Enterprise Banner" class="hero-banner" onerror="this.style.display='none'">
+                    <img src="banner.jpg" alt="RexusTech Enterprise Banner" class="hero-banner" onerror="this.style.display='none'">
                 </div>
                 
                 <!-- Force heading onto a single line -->
@@ -163,10 +163,10 @@
                 </div>
             </section>
 
-            <section class="section-padding text-center" style="background: white; border-top: 1px solid var(--c-border);">
+            <section class="section-padding text-center" style="background: var(--c-bg-white);">
                 <h2 class="heading-lg">Why RexusTech?</h2>
                 
-                <!-- Updated Vertical Layout for "Why RexusTech?" -->
+                <!-- Vertical Layout for "Why RexusTech?" -->
                 <div class="container" style="display: flex; flex-direction: column; gap: 1rem; max-width: 450px; margin: 2rem auto 0;">
                     
                     <div class="card" style="padding: 1.25rem; display: flex; align-items: center; justify-content: flex-start;">
@@ -240,7 +240,8 @@
                         <p style="margin-bottom: 0.5rem;"><strong style="color: var(--c-navy);">Who it's for:</strong> Organizations requiring private, locally-hosted LLMs and AI processing.</p>
                         <p><strong style="color: var(--c-navy);">Key benefit:</strong> Verified zero data leaks with low-latency outputs.</p>
                     </div>
-                    <button class="btn-outline" style="width: 100%; padding: 0.6rem;" onclick="document.querySelector('[data-target=\'page-contact\']').click()">Demo / Learn More</button>
+                    <!-- Updated Demo Link to direct email -->
+                    <button class="btn-outline" style="width: 100%; padding: 0.6rem;" onclick="window.location.href='mailto:rexusfounder@gmail.com?subject=Demo Request - Rexus Engine'">Demo / Learn More</button>
                 </div>
                 
                 <div class="card" style="display: flex; flex-direction: column;">
@@ -250,7 +251,8 @@
                         <p style="margin-bottom: 0.5rem;"><strong style="color: var(--c-navy);">Who it's for:</strong> Manufacturing floors and facilities relying on visual quality control.</p>
                         <p><strong style="color: var(--c-navy);">Key benefit:</strong> Eliminates manual visual inspection failures and automates high-resolution data streams.</p>
                     </div>
-                    <button class="btn-outline" style="width: 100%; padding: 0.6rem;" onclick="document.querySelector('[data-target=\'page-contact\']').click()">Demo / Learn More</button>
+                    <!-- Updated Demo Link to direct email -->
+                    <button class="btn-outline" style="width: 100%; padding: 0.6rem;" onclick="window.location.href='mailto:rexusfounder@gmail.com?subject=Demo Request - NeuroVision Core'">Demo / Learn More</button>
                 </div>
 
                 <div class="card" style="display: flex; flex-direction: column;">
@@ -260,7 +262,8 @@
                         <p style="margin-bottom: 0.5rem;"><strong style="color: var(--c-navy);">Who it's for:</strong> Industrial plants and enterprises managing disconnected hardware sensor data.</p>
                         <p><strong style="color: var(--c-navy);">Key benefit:</strong> Near-zero latency industrial monitoring and eliminated network bottlenecks.</p>
                     </div>
-                    <button class="btn-outline" style="width: 100%; padding: 0.6rem;" onclick="document.querySelector('[data-target=\'page-contact\']').click()">Demo / Learn More</button>
+                    <!-- Updated Demo Link to direct email -->
+                    <button class="btn-outline" style="width: 100%; padding: 0.6rem;" onclick="window.location.href='mailto:rexusfounder@gmail.com?subject=Demo Request - RexusFlow Edge'">Demo / Learn More</button>
                 </div>
             </div>
         </div>
