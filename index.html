@@ -96,7 +96,6 @@
         .status-indicator { display: flex; align-items: center; gap: 0.5rem; font-weight: 600; font-size: 0.9rem; }
         .dot { width: 10px; height: 10px; border-radius: 50%; }
         .dot-green { background-color: #10B981; box-shadow: 0 0 8px rgba(16, 185, 129, 0.5); }
-        .dot-yellow { background-color: #F59E0B; box-shadow: 0 0 8px rgba(245, 158, 11, 0.5); }
 
         footer { background: var(--c-navy); color: white; text-align: center; padding: 2rem; margin-top: auto; }
     </style>
@@ -299,14 +298,13 @@
                 </div>
                 <div class="status-item">
                     <span style="font-weight: 500;">Data Analytics Cloud</span>
-                    <span class="status-indicator" style="color: #F59E0B;"><span class="dot dot-yellow"></span> Degraded Performance</span>
+                    <span class="status-indicator" style="color: #10B981;"><span class="dot dot-green"></span> Operational</span>
                 </div>
                 <div class="status-item">
-                    <span style="font-weight: 500;">Global API Routing</span>
+                    <span style="font-weight: 500;">Backend Services</span>
                     <span class="status-indicator" style="color: #10B981;"><span class="dot dot-green"></span> Operational</span>
                 </div>
             </div>
-            <button class="btn-dark" id="incident-report-btn" style="width: 100%; margin-top: 2rem;">View Full Incident Report</button>
         </div>
     </div>
 
@@ -341,13 +339,6 @@
             const closeStatus = document.getElementById('close-status');
             btnStatus.addEventListener('click', () => overlayStatus.classList.add('active'));
             closeStatus.addEventListener('click', () => overlayStatus.classList.remove('active'));
-
-            const incidentBtn = document.getElementById('incident-report-btn');
-            if (incidentBtn) {
-                incidentBtn.addEventListener('click', () => {
-                    alert("Redirecting to RexusTech Live Incident Logs dashboard...");
-                });
-            }
 
             // Hero Get Started / Request Demo -> Routes to Contact Us email (rexusfounder@gmail.com)
             const getStartedBtn = document.getElementById('hero-get-started-btn');
